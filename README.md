@@ -29,12 +29,16 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 
 Laravel Installion
+- nvm use 16 (to use Vite)
 - create .env
 - composer create-project laravel/laravel example-app OR
 - composer install
 
 - php artisan serve
 - php artisan migrate
+
+- npm run dev (run vite server)
+- aristos.aresti@gmail.com, test1234!
 
 ## Learning Laravel
 
