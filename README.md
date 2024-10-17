@@ -159,3 +159,7 @@ To avoid accidental cases of modifying the database during testing I used the ``
 ### Bonus - user interface with latest stock price
 This can be implemented using websockets. Laravel has good support for this using a server-side broadcasting driver that broadcasts the events, and Laravel Echo(a frontend Javascript library) can receive them within the browser client. I didn't implement this part due to lack of time.
 
+- ```$ docker --version```  
+Docker version 26.1.4, build 5650f9b
+-  ```docker-compose --version```  
+docker-compose version 1.29.2, build unknown
