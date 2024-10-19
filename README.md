@@ -1,3 +1,13 @@
+### Starting Services
+```bash
+$ docker-compose up -d
+$ docker-compose exec app npm install  
+$ docker-compose exec app npm run dev 
+```
+
+### User
+aristos.aresti@gmail.com / s@bNyKe.V8FWyGe
+
 ### Initial Setup
 - clore repository:  
 ```$ git clone  git@github.com:aristos32/exercise.git```  
@@ -48,6 +58,17 @@ then set correct permissions and ownership:
 
 - Generate Laravel application encryption key  
 ```$ docker-compose exec app php artisan key:generate```
+
+- install npm
+```bash
+$ docker-compose exec app npm install  
+```
+
+- is vite running
+```
+$ docker-compose exec app npm run dev 
+  ➜  Local:   http://localhost:5173/
+```
 
 - start the scheduler  
 ```$ docker-compose exec app php artisan schedule:work```

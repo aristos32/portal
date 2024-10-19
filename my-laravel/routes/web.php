@@ -1,23 +1,20 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-use Illuminate\Support\Facades\Cache;
-
-Route::get('/redis-test', function () {
-    // Store a value in Redis
-    Cache::store('redis')->put('key', 'This is a test value 4', 10); // Cache for 10 minutes
-    Cache::store('redis')->put('key2', 'This is a test value 4', 10); // Cache for 10 minutes
-
-    // Retrieve the value
-    return Cache::store('redis')->get('key');
-});
+require __DIR__.'/auth.php';
