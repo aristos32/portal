@@ -33,11 +33,11 @@ $ php artisan --version
 - In the .env, update these variables to match the ones in the docker-compose  
 ```
 # db
-DB_CONNECTION=mysql
+DB_CONNECTION=pgsql
 DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=laravel
+DB_PORT=5432
+DB_DATABASE=portal
+DB_USERNAME=administrator
 DB_PASSWORD=password
 
 # redis
