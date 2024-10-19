@@ -10,6 +10,30 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
+                    @php
+                        $isActive = true;
+                        $hasError = false;
+                    @endphp
+
+                    @if ($isActive)
+                        <p>Active</p>
+                    @else
+                        <p>Inactive</p>
+                    @endif
+
+                    @auth
+                        <p>Hello d, {{ Auth::user()->name }}!</p>
+                        <p>Your email: {{ Auth::user()->email }}</p>
+                    @else
+                        <p>You are not logged in dh.</p>
+                    @endauth
+
+                    @guest
+                        <p>Welcome, guest! Please <a href="{{ route('login') }}">log in</a>.</p>
+                    @endguest
+
+                    <x-alert type="new type" message="There was an error." />
+
                 </div>
             </div>
         </div>

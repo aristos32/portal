@@ -1,3 +1,10 @@
+## Current Project
+- https://docs.google.com/document/d/1lkJQ-pVw1q4SR7appH6KRTOHF_mkFCsU7Vz3t-X27c0/edit#heading=h.55sbk8djw69w
+- Create a backoffice / clients portal
+- Should use the latest technology to learn
+- Laravel, postrgesssql, docker
+
+
 ### Starting Services
 ```bash
 $ docker-compose up -d
@@ -7,6 +14,14 @@ $ docker-compose exec app npm run dev
 
 ### User
 aristos.aresti@gmail.com / s@bNyKe.V8FWyGe
+
+### versions
+```bash
+$ docker --version  //Docker version 26.1.4, build 5650f9b    
+$ docker-compose --version //docker-compose version 1.29.2, build unknown
+$ node -v
+$ php artisan --version
+```
 
 ### Initial Setup
 - clore repository:  
@@ -40,9 +55,18 @@ ALPHA_VANTAGE_API_KEY=I96SA21INZCRDLAR
 ``` $ docker-compose run --rm composer install ```
 
 - If any permission errors like this occurs:  
-```The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened in append mode: Failed to open stream: Permission denied The exception occurred while attempting to log```  
+```
+The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened in append mode: Failed to open stream: Permission denied The exception occurred while attempting to log
+```  
 then set correct permissions and ownership:  
-``` $ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && docker-compose exec app chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache```
+```
+$ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && docker-compose exec app chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+```
+
+- if cannot save file:
+```
+$ sudo chown -R aristos:aristos my-laravel/
+```
 
 - install Laravel Sanctum for api  
 ```$ docker-compose exec app php artisan install:api```
@@ -64,8 +88,13 @@ then set correct permissions and ownership:
 $ docker-compose exec app npm install  
 ```
 
-- is vite running
+- Assets related - is vite running
 ```
+http://localhost:5173/
+php artisan view:clear
+php artisan config:clear
+```
+
 $ docker-compose exec app npm run dev 
   ➜  Local:   http://localhost:5173/
 ```
@@ -180,7 +209,3 @@ To avoid accidental cases of modifying the database during testing I used the ``
 ### Bonus - user interface with latest stock price
 This can be implemented using websockets. Laravel has good support for this using a server-side broadcasting driver that broadcasts the events, and Laravel Echo(a frontend Javascript library) can receive them within the browser client. I didn't implement this part due to lack of time.
 
-- ```$ docker --version```  
-Docker version 26.1.4, build 5650f9b
--  ```docker-compose --version```  
-docker-compose version 1.29.2, build unknown
