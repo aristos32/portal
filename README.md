@@ -2,7 +2,7 @@
 - https://docs.google.com/document/d/1lkJQ-pVw1q4SR7appH6KRTOHF_mkFCsU7Vz3t-X27c0/edit#heading=h.55sbk8djw69w
 - Create a backoffice / clients portal
 - Should use the latest technology to learn
-- Laravel, postrgesssql, docker
+- Laravel, postgressql, docker
 
 
 ### Starting Services
