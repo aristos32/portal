@@ -80,7 +80,7 @@ $ sudo chown -R aristos:aristos my-laravel/
 - Run migrations  
 ```$ docker-compose exec app php artisan migrate```
 
-- Generate Laravel application encryption key  
+- Generate Laravel application encryption key -  missing key exception 
 ```$ docker-compose exec app php artisan key:generate```
 
 - install npm
@@ -103,13 +103,16 @@ $ docker-compose exec app npm run dev
 
 ### Testing
 #### Check if application is running  
-```http://127.0.0.1:8082/```  
-```http://127.0.0.1:8082/test```  
-```http://127.0.0.1:8082/redis-test```  
-```http://127.0.0.1:8082/api/stock/get/AAPL```  
-```http://127.0.0.1:8082/api/stock/report/AAPL```  
-```http://127.0.0.1:8082/api/stock/report```  
-```$ curl http://127.0.0.1:8082/api/stock/get/IBM```  
+```
+http://127.0.0.1:8082/
+http://127.0.0.1:8082/dashboard
+http://127.0.0.1:8082/test
+http://127.0.0.1:8082/redis-test
+http://127.0.0.1:8082/api/stock/get/AAPL
+http://127.0.0.1:8082/api/stock/report/AAPL
+http://127.0.0.1:8082/api/stock/report
+$ curl http://127.0.0.1:8082/api/stock/get/IBM
+```  
 
 
 #### Logs
