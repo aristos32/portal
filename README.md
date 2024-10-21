@@ -93,7 +93,6 @@ $ docker-compose exec app npm install
 http://localhost:5173/
 php artisan view:clear
 php artisan config:clear
-```
 
 $ docker-compose exec app npm run dev 
   ➜  Local:   http://localhost:5173/
@@ -124,7 +123,10 @@ $ docker-compose exec app npm run dev
 
 #### Database Connect
 Connect to the database from the host machine  
-```$ mysql -h 127.0.0.1 -P 3308 -u laravel -p```
+```
+$ psql -h localhost -p 5432 -U administrator -d portal
+$ mysql -h 127.0.0.1 -P 3308 -u laravel -p
+```
 
 #### Run all tests  
 ```$ docker-compose exec app php artisan test```
