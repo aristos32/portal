@@ -8,8 +8,10 @@
 ### Starting Services
 ```bash
 $ docker-compose up -d
-$ docker-compose exec app npm install  
 $ docker-compose exec app npm run dev 
+> http://127.0.0.1:8082/  
+
+$ docker-compose exec app npm install  
 ```
 
 ### User
