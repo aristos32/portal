@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Arr;
+use App\Models\Job;
 
 Route::get('/', function () {
     return view('home');
@@ -10,48 +10,13 @@ Route::get('/', function () {
 
 Route::get('/jobs', function () {
     return view('jobs', [
-        'jobs' => [
-            [
-                'id' => 1,
-                'title' => 'PHP Developer',
-                'salary' => '$60,000',
-            ],
-            [
-                'id' => 2,
-                'title' => 'Python Developer',
-                'salary' => '$70,000',
-            ],
-            [
-                'id' => 3,
-                'title' => 'Java Developer',
-                'salary' => '$80,000',
-            ],
-        ]
+        'jobs' => Job::all(),
     ]);
 });
 
 Route::get('/jobs/{id}', function ($id) {
-    $jobs = [
-        [
-            'id' => 1,
-            'title' => 'PHP Developer',
-            'salary' => '$60,000',
-        ],
-        [
-            'id' => 2,
-            'title' => 'Python Developer',
-            'salary' => '$70,000',
-        ],
-        [
-            'id' => 3,
-            'title' => 'Java Developer',
-            'salary' => '$80,000',
-        ],
-    ];
-
-    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
-
     return view('job', [
+        $job = Job::find($id),
         'job' => $job,
     ]);
 });
