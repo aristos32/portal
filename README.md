@@ -91,6 +91,11 @@ $ sudo chown -R aristos:aristos my-laravel/
 ```bash
 $ docker-compose exec app npm install  
 ```
+- Tinker CLI
+```
+$ docker-compose exec app php artisan tinker  
+> \App\Models\Job::factory(100)->create()
+```
 
 - Assets related - is vite running
 ```
