@@ -26,3 +26,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 
 # Verify installation
 RUN node -v && npm -v
+
+# Ensure necessary directories are created
+RUN mkdir -p /var/www/html/storage /var/www/html/storage/logs /var/www/html/bootstrap/cache
+
+# Set correct permissions for storage and bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache

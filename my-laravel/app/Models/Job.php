@@ -16,4 +16,10 @@ class Job extends Model
         'salary',
     ];
 
+    // Define the relationship in the PHP level
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
+
 }

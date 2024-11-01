@@ -16,6 +16,13 @@ return new class extends Migration {
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+            $table->string('account_number')->unique();
+            $table->decimal('balance', 10, 2)->default(0);
+            $table->boolean('is_active')->default(true);
+            $table->timestamp('last_transaction_at')->nullable();
+            $table->softDeletes();
+            $table->string('notes')->nullable();
+            $table->string('currency');
             $table->timestamps();
         });
     }
