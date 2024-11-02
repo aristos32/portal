@@ -24,4 +24,6 @@ class Account extends Model
     }
 
 
+
+
 }
