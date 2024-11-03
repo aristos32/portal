@@ -55,7 +55,10 @@ ALPHA_VANTAGE_API_URL=https://www.alphavantage.co/query
 ALPHA_VANTAGE_API_KEY=I96SA21INZCRDLAR
 ```
 - Install composer dependencies  
-``` $ docker-compose run --rm composer install ```
+```
+$ docker-compose run --rm composer install  
+$ docker-compose run --rm composer require barryvdh/laravel-debugbar --dev
+```
 
 - If any permission errors like this occurs:  
 ```

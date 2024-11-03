@@ -9,8 +9,10 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
+    $jobs = Job::with('employer')->get(); //eager loading - to avoid N+1 problem
+
     return view('jobs', [
-        'jobs' => Job::all(),
+        'jobs' => $jobs,
     ]);
 });
 
