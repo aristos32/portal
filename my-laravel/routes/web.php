@@ -16,16 +16,19 @@ Route::get('/jobs', function () {
     ]);
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::get('/jobs/{id}', function ($id) {
     return view('job', [
         $job = Job::find($id),
         'job' => $job,
     ]);
-});
-
-
-Route::get('/contact', function () {
-    return view('contact');
 });
 
 Route::get('/dashboard', function () {
