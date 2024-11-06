@@ -15,8 +15,12 @@ $ docker-compose exec app php artisan migrate
 $ docker-compose exec app npm install  
 ```
 
-### User
-aristos.aresti@gmail.com / s@bNyKe.V8FWyGe
+### User - See Database Seeder
+
+### Laravel getting help
+```
+$ docker-compose exec app php artisan help migrate:fresh
+```
 
 ### versions
 ```bash
@@ -136,11 +140,15 @@ $ curl http://127.0.0.1:8082/api/stock/get/IBM
 -- GET key_name  
 -- DEL key_name
 
-#### Database Connect
+#### Database
 Connect to the database from the host machine  
 ```
 $ psql -h localhost -p 5432 -U administrator -d portal
 $ mysql -h 127.0.0.1 -P 3308 -u laravel -p
+```
+Clean and seed again
+```
+$ docker-compose exec app php artisan migrate:fresh --seed
 ```
 
 #### Run all tests  
