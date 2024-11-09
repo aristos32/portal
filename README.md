@@ -10,6 +10,7 @@
 $ docker-compose up -d
 $ docker-compose exec app npm run dev  
 $ docker-compose exec app php artisan migrate  
+$ docker-compose exec app php artisan migrate:fresh --seed  
 > http://127.0.0.1:8082/  
 
 $ docker-compose exec app npm install  
