@@ -8,6 +8,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Index
 Route::get('/jobs', function () {
     $jobs = Job::with('employer')->latest()->simplePaginate(3); //eager loading - to avoid N+1 problem
 
@@ -29,9 +30,9 @@ Route::get('/jobs/create', function () {
     return view('jobs.create');
 });
 
-// Show
-Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
+// Show using Route Model Binding
+Route::get('/jobs/{job}', function (Job $job) {
+    // $job = Job::find($id);
 
     return view('jobs.show', [
         'job' => $job,
@@ -55,9 +56,9 @@ Route::post('/jobs', function () {
     return redirect('/jobs');
 });
 
-// Edit
-Route::get('/jobs/{id}/edit', function ($id) {
-    $job = Job::find($id);
+// Edit using Route Model Binding
+Route::get('/jobs/{job}/edit', function (Job $job) {
+    //$job = Job::find($id);
 
     return view('jobs.edit', [
         'job' => $job,
@@ -65,16 +66,16 @@ Route::get('/jobs/{id}/edit', function ($id) {
 });
 
 // Update
-Route::patch('/jobs/{id}', function ($id) {
+Route::patch('/jobs/{job}', function (Job $job) {
+    // authorize (On hold...)
+
     request()->validate([
         'title' => ['required', 'min:3'],
         'salary' => ['required'],
     ]);
 
-    // authorize (On hold...)
-
     // update
-    $job = Job::findOrFail($id);
+    // $job = Job::findOrFail($id);
     // $job->title = request('title');
     // $job->salary = request('salary');
     // $job->save();
@@ -88,10 +89,10 @@ Route::patch('/jobs/{id}', function ($id) {
 });
 
 // Destroy
-Route::delete('/jobs/{id}', function ($id) {
+Route::delete('/jobs/{job}', function (Job $job) {
     // authorize (On hold...)
 
-    $job = Job::findOrFail($id);
+    //$job = Job::findOrFail($id);
     $job->delete();
 
     return redirect('/jobs');
