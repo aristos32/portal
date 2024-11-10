@@ -21,11 +21,18 @@
             <x-input-label for="first_name" :value="__('First Name')" />
             <x-text-input id="first_name" name="first_name" type="text" class="mt-1 block w-full"
                 :value="old('first_name', $user->first_name)" required autocomplete="first_name" />
+
+            @error('first_name')
+                <p class="text-xs text-red-600">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
             <x-input-label for="last_name" :value="__('Last Name')" />
             <x-text-input id="last_name" name="last_name" type="text" class="mt-1 block w-full" :value="old('last_name', $user->last_name)" required autocomplete="last_name" />
+            @error('last_name')
+                <p class="text-xs text-red-600">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>
