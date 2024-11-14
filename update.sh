@@ -14,5 +14,7 @@ docker-compose up -d
 echo "Running Migrations"
 docker-compose exec app php artisan migrate
 
-echo "Running Seeders"
 docker-compose exec app npm run dev
+
+echo "Running Unit Tests"
+docker-compose exec app php artisan test
