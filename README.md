@@ -4,6 +4,9 @@
 - Should use the latest technology to learn
 - Laravel, postgressql, tailwind, docker
 
+```
+$ ./update.sh
+```
 
 ### Starting Services
 ```bash
