@@ -38,13 +38,16 @@
                             @endguest
 
                             @auth
-                                <form method="POST" action="/logout">
+                                <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <x-button type="submit">Logout</x-button>
+                                    <x-button type="submit" onclick="event.preventDefault();
+                                                        this.closest('form').submit();">Logout</x-button>
                                 </form>
                             @endauth
 
                         </div>
+
+
                     </div>
                     <div class="-mr-2 flex md:hidden">
                         <!-- Mobile menu button -->
