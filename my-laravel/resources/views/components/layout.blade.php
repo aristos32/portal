@@ -38,10 +38,15 @@
                             @endguest
 
                             @auth
-                                <form method="POST" action="{{ route('logout') }}">
+                                <!-- <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <x-button type="submit" onclick="event.preventDefault();
+                                                                        this.closest('form').submit();">Logout</x-button>
+                                                </form> -->
+                                <form method="POST" action="/logout">
                                     @csrf
-                                    <x-button type="submit" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">Logout</x-button>
+
+                                    <x-test.form-button>Log Out</x-test.form-button>
                                 </form>
                             @endauth
 
