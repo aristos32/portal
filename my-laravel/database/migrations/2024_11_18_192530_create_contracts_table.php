@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('contracts', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(\App\Models\User::class)
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->string('name');
+            $table->string('number', 10)->unique();
+            $table->string('description', 512)->nullable();
+            $table->decimal('balance', 10, 2)->nullable()->default(0);
+            $table->boolean('is_active')->default(false);
+            $table->softDeletes();
+            $table->string('notes')->nullable();
+            $table->dateTime('last_transaction_at')->nullable();
+            $table->dateTime('start')->nullable();
+            $table->timestamp('expiry')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('contracts');
+    }
+};

@@ -15,18 +15,19 @@ class JobController extends Controller
             'jobs' => $jobs,
         ]);
     }
-
-    public function create()
-    {
-        return view('jobs.create');
-    }
-
     public function show(Job $job)
     {
         return view('jobs.show', [
             'job' => $job,
         ]);
     }
+
+    public function create()
+    {
+        return view('jobs.create');
+    }
+
+
 
     public function store()
     {

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Account;
 use App\Models\User;
 use App\Models\Job;
+use App\Models\Contract;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -27,5 +28,7 @@ class DatabaseSeeder extends Seeder
         Job::factory(100)->create();
 
         Account::factory(100)->create();
+
+        Contract::factory(100)->create();
     }
 }
