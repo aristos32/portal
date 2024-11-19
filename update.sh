@@ -16,5 +16,6 @@ docker-compose exec app php artisan migrate
 
 docker-compose exec app npm run dev
 
+# must run after npm run dev
 echo "Running Unit Tests"
 docker-compose exec app php artisan test

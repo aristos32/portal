@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -29,6 +30,9 @@ Route::controller(JobController::class)->group(function () {
     Route::delete('/jobs/{job}', 'destroy');
 });
 
+Route::controller(ContractController::class)->group(function () {
+    Route::get('/accounts', 'index')->middleware('auth');
+});
 // shorthand for the above
 // Route::resource('jobs', JobController::class);
 
