@@ -156,8 +156,13 @@ $ docker-compose exec app php artisan migrate:fresh --seed
 ```
 
 #### Run all tests  
-```$ docker-compose exec app php artisan test```
+```$ docker-compose exec app php artisan test```https://mailtrap.io/
 
 #### Call Alpha Vantage API command manually  
 ```$ docker-compose exec app php artisan app:call-alpha-vantage-api```
+
+#### Useful tools
+```
+https://mailtrap.io/
+```
 
