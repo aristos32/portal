@@ -12,6 +12,10 @@ return new class extends Migration {
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\User::class)
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
             $table->string('name');
             $table->timestamps();
         });

@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\User;
 use App\Models\Job;
 use App\Models\Contract;
+use App\Models\Employer;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,8 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
             'first_name' => 'Aristos',
             'last_name' => 'Aresti',
@@ -25,10 +24,14 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('s@bNyKe.V8FWyGe'),
         ]);
 
+        User::factory(100)->create();
+
         Job::factory(100)->create();
 
         Account::factory(100)->create();
 
         Contract::factory(100)->create();
+
+        Employer::factory(100)->create();
     }
 }

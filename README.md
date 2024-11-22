@@ -78,7 +78,10 @@ $ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/boots
 ```
 
 - if cannot save file:
-Failed to save '2024_10_28_185159_create_accounts_table.php': Insufficient permissions.   
+Failed to save '2024_10_28_185159_create_accounts_table.php': Insufficient permissions.  
+
+- file_put_contents(/var/www/html/storage/framework/views/bae129cef9e600352d1c88ca55b5c61c.php): Failed to open stream: Permission denied
+
 ```
 $ sudo chown -R aristos:aristos my-laravel/
 ```
