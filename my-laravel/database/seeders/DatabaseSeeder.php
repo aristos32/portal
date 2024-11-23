@@ -32,6 +32,6 @@ class DatabaseSeeder extends Seeder
 
         Contract::factory(100)->create();
 
-        Employer::factory(100)->create();
+        //Employer::factory(100)->create();
     }
 }

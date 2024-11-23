@@ -6,6 +6,14 @@ use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('test', function () {
+    Mail::raw('Hello World', function ($message) {
+        $message->to('test@test.com');
+        $message->subject('wrosks');
+    });
+});
+
 Route::view('/', 'home')->name('home');
 Route::view('/contact', 'contact');
 Route::view('/about', 'about');
