@@ -17,8 +17,11 @@ docker-compose exec app php artisan migrate
 echo "Setting permissions inside the container"
 docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && docker-compose exec app chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-echo "setting file ownership"
-sudo chown -R aristos:aristos *
+# echo "setting file ownership"
+# sudo chown -R aristos:aristos *
+
+echo "Running Queue Worker"
+docker-compose exec app php artisan queue:work &
 
 docker-compose exec app npm run dev
 

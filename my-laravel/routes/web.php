@@ -3,15 +3,24 @@
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContractController;
+use App\Jobs\TranslateJob;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('test', function () {
-    Mail::raw('Hello World', function ($message) {
-        $message->to('test@test.com');
-        $message->subject('wrosks');
-    });
+    // Mail::raw('Hello World', function ($message) {
+    //     $message->to('test@test.com');
+    //     $message->subject('wrosks');
+    // });
+    // echo'sent';
+    $job = App\Models\Job::latest()->first();
+
+    TranslateJob::dispatch($job);
+
+    // dispatch(function () {
+    //     logger('hello from the queue!');
+    // })->delay(5);
 });
 
 Route::view('/', 'home')->name('home');
