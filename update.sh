@@ -8,6 +8,9 @@ docker-compose run --rm composer install
 echo "Installing NPM Dependencies"
 docker-compose exec app npm install 
 
+echo 'stoping docker services'
+docker-compose down
+
 echo "starting docker services"
 docker-compose up -d
 
@@ -23,6 +26,10 @@ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstr
 echo "Running Queue Worker"
 docker-compose exec app php artisan queue:work &
 
+echo "Building Assets"
+docker-compose exec app npm run build
+
+echo "Running NPM Dev"
 docker-compose exec app npm run dev
 
 # must run after npm run dev
