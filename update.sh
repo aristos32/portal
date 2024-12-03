@@ -26,7 +26,7 @@ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstr
 echo "Running Queue Worker"
 docker-compose exec app php artisan queue:work &
 
-echo "Building Assets"
+echo "Building Assets for production"
 docker-compose exec app npm run build
 
 echo "Running NPM Dev"
