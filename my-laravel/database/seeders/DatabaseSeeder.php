@@ -30,8 +30,6 @@ class DatabaseSeeder extends Seeder
 
         Account::factory(100)->create();
 
-        Contract::factory(100)->create();
-
-        //Employer::factory(100)->create();
+        $this->call(ContractSeeder::class);
     }
 }
