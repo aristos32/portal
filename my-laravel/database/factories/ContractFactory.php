@@ -27,6 +27,8 @@ class ContractFactory extends Factory
             'is_active' => $this->faker->boolean(0.5),
             'notes' => $this->faker->randomDigitNotZero(),
             'last_transaction_at' => fake()->dateTimeThisYear(),
+            'start_date' => fake()->date('Y-m-d', now()),
+            'expiry_date' => fake()->date('Y-m-d', now()->addMonths(12)),
         ];
     }
 }

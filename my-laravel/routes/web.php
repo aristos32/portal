@@ -46,6 +46,7 @@ Route::controller(JobController::class)->group(function () {
 
 Route::controller(ContractController::class)->group(function () {
     Route::get('/accounts', 'index')->middleware('auth');
+    Route::get('/accounts/create', 'create')->middleware('auth');
 });
 // shorthand for the above
 // Route::resource('jobs', JobController::class);

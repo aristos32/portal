@@ -21,6 +21,8 @@ class Contract extends Model
         'is_active',
         'notes',
         'last_transaction_at',
+        'start_date',
+        'expiry_date',
     ];
 
     public function user()

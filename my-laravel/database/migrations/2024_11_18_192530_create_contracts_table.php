@@ -24,8 +24,8 @@ return new class extends Migration {
             $table->softDeletes();
             $table->string('notes')->nullable();
             $table->dateTime('last_transaction_at')->nullable();
-            $table->dateTime('start')->nullable();
-            $table->timestamp('expiry')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('expiry_date')->nullable();
             $table->timestamps();
         });
     }

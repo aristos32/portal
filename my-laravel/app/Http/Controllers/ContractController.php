@@ -19,4 +19,9 @@ class ContractController extends Controller
             'contracts' => $contracts,
         ]);
     }
+
+    public function create()
+    {
+        return view('contracts.create');
+    }
 }
