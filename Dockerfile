@@ -33,3 +33,5 @@ RUN mkdir -p /var/www/html/storage /var/www/html/storage/logs /var/www/html/boot
 # Set correct permissions for storage and bootstrap/cache
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+COPY docker/php/conf.d/xdebug.ini $PHP_INI_DIR/conf.d/xdebug.ini
