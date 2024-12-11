@@ -23,6 +23,9 @@ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstr
 # echo "setting file ownership"
 # sudo chown -R aristos:aristos *
 
+echo "Seeding the container"
+docker-compose exec app php artisan migrate:fresh --seed
+
 echo "Running Queue Worker"
 docker-compose exec app php artisan queue:work &
 
