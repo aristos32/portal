@@ -23,6 +23,10 @@ Route::get('test', function () {
     // })->delay(5);
 });
 
+Route::get('welcome', function () {
+    return view('welcome');
+});
+
 Route::view('/', 'home')->name('home');
 Route::view('/contact', 'contact');
 Route::view('/about', 'about');
