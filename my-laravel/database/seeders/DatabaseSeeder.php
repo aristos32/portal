@@ -31,5 +31,7 @@ class DatabaseSeeder extends Seeder
         Account::factory(100)->create();
 
         $this->call(ContractSeeder::class);
+
+        $this->call(AddressSeeder::class);
     }
 }
