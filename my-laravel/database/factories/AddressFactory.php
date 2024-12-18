@@ -18,12 +18,12 @@ class AddressFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'type' => $this->faker->randomElement(['home', 'work', 'other', 'business', 'correspondence']),
-            'street' => $this->faker->streetAddress,
-            'city' => $this->faker->city,
-            'state' => $this->faker->state,
-            'area_code' => $this->faker->postcode,
-            'country' => $this->faker->country,
+            'type' => fake()->randomElement(['home', 'work', 'other', 'business', 'correspondence']),
+            'street' => fake()->streetAddress,
+            'city' => fake()->city,
+            'state' => fake()->state,
+            'area_code' => fake()->postcode,
+            'country' => fake()->country,
         ];
     }
 }

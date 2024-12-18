@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Contract;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,12 @@ class TransactionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'contract_id' => Contract::factory(),
+            'amount' => fake()->randomFloat(2, 100, 10000),
+            'type' => fake()->randomElement(['deposit', 'withdrawal']),
+            'description' => fake()->sentence,
+            'notes' => fake()->paragraph,
+            'transaction_date' => fake()->dateTimeThisYear,
         ];
     }
 }

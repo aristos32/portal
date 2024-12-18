@@ -19,13 +19,13 @@ class ContractFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            'name' => fake()->name,
             'user_id' => User::factory(),
-            'number' => $this->faker->numberBetween(1, 10000),
-            'description' => $this->faker->paragraph,
-            'balance' => $this->faker->numberBetween(1, 10000),
-            'is_active' => $this->faker->boolean(0.5),
-            'notes' => $this->faker->randomDigitNotZero(),
+            'number' => fake()->numberBetween(1, 10000),
+            'description' => fake()->paragraph,
+            'balance' => fake()->numberBetween(1, 10000),
+            'is_active' => fake()->boolean(0.5),
+            'notes' => fake()->randomDigitNotZero(),
             'last_transaction_at' => fake()->dateTimeThisYear(),
             'start_date' => fake()->date('Y-m-d', now()),
             'expiry_date' => fake()->date('Y-m-d', now()->addMonths(12)),

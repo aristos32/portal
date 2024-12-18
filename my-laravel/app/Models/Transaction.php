@@ -9,4 +9,18 @@ class Transaction extends Model
 {
     /** @use HasFactory<\Database\Factories\TransactionsFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'contract_id',
+        'amount',
+        'type',
+        'description',
+        'notes',
+        'transaction_date',
+    ];
+
+    public function contract()
+    {
+        return $this->belongsTo(Contract::class);
+    }
 }
