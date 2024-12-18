@@ -58,11 +58,6 @@ class User extends Authenticatable
         return $this->hasMany(Account::class);
     }
 
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class);
-    }
-
     public function latestTransaction()
     {
         return $this->hasOne(Transaction::class)->latestOfMany();

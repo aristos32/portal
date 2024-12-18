@@ -24,6 +24,8 @@ class TransactionFactory extends Factory
             'description' => fake()->sentence,
             'notes' => fake()->paragraph,
             'transaction_date' => fake()->dateTimeThisYear,
+            'currency' => 'USD',
+            'status' => fake()->randomElement(['pending', 'completed', 'failed']),
         ];
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)
+            $table->foreignIdFor(\App\Models\Contract::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
@@ -20,7 +20,9 @@ return new class extends Migration {
             $table->decimal('amount', 10, 2);
             $table->string('currency');
             $table->string('status');
+            $table->string('description', 512)->nullable();
             $table->string('notes')->nullable();
+            $table->dateTime('transaction_date');
             $table->timestamps();
         });
     }
