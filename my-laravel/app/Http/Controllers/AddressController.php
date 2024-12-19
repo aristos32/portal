@@ -13,7 +13,14 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+        // get all logged in user address
+        $addresses = auth()->user()->addresses;
+
+        return view(
+            'addresses.index',
+            ['addresses' => $addresses]
+        );
+
     }
 
     /**

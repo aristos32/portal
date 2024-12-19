@@ -8,7 +8,6 @@ class AccountController extends Controller
 {
     public function index()
     {
-        dd('here');
         return view('accounts.index');
     }
 }
