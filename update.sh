@@ -1,5 +1,6 @@
 #! /bin/sh
 echo "Updating Project"
+git switch main
 git pull
 
 echo "Installing Composer Dependencies"
@@ -32,9 +33,8 @@ docker-compose exec app php artisan queue:work &
 echo "Building Assets for production"
 docker-compose exec app npm run build
 
-echo "Running NPM Dev"
-docker-compose exec app npm run dev
+echo "Running NPM Dev in the background"
+docker-compose exec -d app npm run dev
 
-# must run after npm run dev
 # echo "Running Unit Tests"
-# docker-compose exec app php artisan test
+docker-compose exec app php artisan test
