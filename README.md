@@ -4,11 +4,12 @@
 - Should use the latest technology to learn
 - Laravel, postgressql, tailwind, docker 
 
+### Start Project
 ```
 $ ./update.sh
 ```
 
-### Starting Services
+### Individual Services
 ```bash
 $ docker-compose up -d
 $ docker-compose exec app npm run dev  
