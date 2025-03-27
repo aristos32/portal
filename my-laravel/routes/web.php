@@ -5,7 +5,6 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContractController;
 use App\Jobs\TranslateJob;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 

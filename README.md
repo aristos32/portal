@@ -131,11 +131,6 @@ $ docker-compose exec app npm run dev
 http://127.0.0.1:8082/
 http://127.0.0.1:8082/dashboard
 http://127.0.0.1:8082/test
-http://127.0.0.1:8082/redis-test
-http://127.0.0.1:8082/api/stock/get/AAPL
-http://127.0.0.1:8082/api/stock/report/AAPL
-http://127.0.0.1:8082/api/stock/report
-$ curl http://127.0.0.1:8082/api/stock/get/IBM
 ```  
 
 

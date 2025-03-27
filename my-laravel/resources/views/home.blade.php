@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:heading>
-        Home Page
+        dashboard 123
     </x-slot:heading>
 
-    <h1>Home</h1>
+    <h1>dashboard</h1>
 </x-layout>
