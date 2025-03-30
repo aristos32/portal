@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        dashboard 123
+        Find Users
     </x-slot:heading>
 
     <h1>dashboard</h1>

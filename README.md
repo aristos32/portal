@@ -52,16 +52,6 @@ DB_DATABASE=portal
 DB_USERNAME=administrator
 DB_PASSWORD=password
 
-# redis
-REDIS_CLIENT=phpredis
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-REDIS_CACHE_DURATION=60
-
-# add these vars
-ALPHA_VANTAGE_API_URL=https://www.alphavantage.co/query
-ALPHA_VANTAGE_API_KEY=I96SA21INZCRDLAR
 ```
 - Install composer dependencies  
 ```

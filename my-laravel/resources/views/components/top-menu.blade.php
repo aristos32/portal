@@ -25,7 +25,6 @@
                     @auth
                     <form method="POST" action="{{route('logout')}}">
                         @csrf
-
                         <x-test.form-button>Log Out</x-test.form-button>
                     </form>
                     @endauth
