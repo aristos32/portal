@@ -15,8 +15,6 @@
         <header class="bg-white shadow">
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
                 <x-page-heading>{{$heading}}</x-page-heading>
-                <x-button href="/jobs/create">Create Job</x-button>
-                <x-button href="/accounts/create">Create Contract</x-button>
             </div>
         </header>
 
@@ -24,6 +22,18 @@
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 {{$slot}}
             </div>
+
+            <!-- Display validation errors -->
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
         </main>
     </div>
 

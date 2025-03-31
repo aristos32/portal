@@ -52,16 +52,6 @@ DB_DATABASE=portal
 DB_USERNAME=administrator
 DB_PASSWORD=password
 
-# redis
-REDIS_CLIENT=phpredis
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-REDIS_CACHE_DURATION=60
-
-# add these vars
-ALPHA_VANTAGE_API_URL=https://www.alphavantage.co/query
-ALPHA_VANTAGE_API_KEY=I96SA21INZCRDLAR
 ```
 - Install composer dependencies  
 ```
@@ -131,11 +121,6 @@ $ docker-compose exec app npm run dev
 http://127.0.0.1:8082/
 http://127.0.0.1:8082/dashboard
 http://127.0.0.1:8082/test
-http://127.0.0.1:8082/redis-test
-http://127.0.0.1:8082/api/stock/get/AAPL
-http://127.0.0.1:8082/api/stock/report/AAPL
-http://127.0.0.1:8082/api/stock/report
-$ curl http://127.0.0.1:8082/api/stock/get/IBM
 ```  
 
 
@@ -162,8 +147,12 @@ $ docker-compose exec app php artisan migrate:fresh --seed
 #### Run all tests  
 ```$ docker-compose exec app php artisan test```
 
-#### Call Alpha Vantage API command manually  
-```$ docker-compose exec app php artisan app:call-alpha-vantage-api```
+#### xdebug - add this
+```
+"pathMappings": {
+                "/var/www/html": "${workspaceFolder}/my-laravel"
+            }
+```
 
 #### Run Queue
 ```
