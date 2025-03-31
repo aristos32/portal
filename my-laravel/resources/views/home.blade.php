@@ -3,5 +3,6 @@
         Find Users
     </x-slot:heading>
 
-    <h1>dashboard</h1>
+    <x-forms.search />
+
 </x-layout>
