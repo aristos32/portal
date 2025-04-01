@@ -27,8 +27,21 @@ class SearchController extends Controller
         if ($validated['state-id']) {
             // Search by state ID
             $users = User::where('identityNumber', $validated['state-id'])->get();
+        } else if ($validated['name']) {
+            // Search by name
+            $users = User::whereRaw('LOWER(first_name) LIKE ?', ['%' . strtolower($validated['name']) . '%'])
+                ->get();
+        } else if ($validated['surname']) {
+            // Search by surname
+            $users = User::whereRaw('LOWER(last_name) LIKE ?', ['%' . strtolower($validated['surname']) . '%'])
+                ->get();
+        } else if ($validated['email']) {
+            // Search by email
+            $users = User::where('email', $validated['email'])->get();
+        } else if ($validated['phone']) {
+            // Search by phone
+            $users = User::where('phone', $validated['phone'])->get();
         }
-
         return view('users', [
             'users' => $users,
         ]);
