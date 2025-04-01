@@ -46,13 +46,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::view('/', 'home')->name('home');
+    Route::get('/', function () {
+        return view('home', [
+            'users' => null,
+            'greeting' => 'Welcome to the home page',
+        ]);
+    })->name('home');
 });
 
 Route::post('/search', [SearchController::class, 'search'])->name('search');
-Route::get('/search', function () {
-    return view('search');
-})->name('search.results');
 
 Route::middleware('auth')->group(function () {
     Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');

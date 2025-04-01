@@ -29,7 +29,7 @@ class SearchController extends Controller
             $users = User::where('identityNumber', $validated['state-id'])->get();
         }
 
-        return view('home', [
+        return view('users', [
             'users' => $users,
         ]);
     }
