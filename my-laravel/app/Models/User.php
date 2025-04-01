@@ -20,8 +20,8 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
-        'identityNumber',
-        'identityType',
+        'identity_number',
+        'identity_type',
         'email',
         'password',
         'phone',
@@ -61,7 +61,6 @@ class User extends Authenticatable
     public function latestTransaction()
     {
         return $this->hasOne(Transaction::class)->latestOfMany();
-
     }
 
     public function contracts()
@@ -78,5 +77,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Address::class);
     }
-
 }

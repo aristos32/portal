@@ -26,7 +26,7 @@ class SearchController extends Controller
         // Perform search logic here
         if ($validated['state-id']) {
             // Search by state ID
-            $users = User::where('identityNumber', $validated['state-id'])->get();
+            $users = User::where('identity_number', $validated['state-id'])->get();
         } else if ($validated['name']) {
             // Search by name
             $users = User::whereRaw('LOWER(first_name) LIKE ?', ['%' . strtolower($validated['name']) . '%'])

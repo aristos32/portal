@@ -22,7 +22,7 @@
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->first_name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->last_name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->identityNumber }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->identity_number }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <x-nav-link :href="'/users/'.$user->id" type='anchor'>View</x-nav-link>
