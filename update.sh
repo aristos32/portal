@@ -3,6 +3,9 @@ echo "Updating Project"
 git switch main
 git pull
 
+echo "Switching to initial branch"
+git switch -
+
 echo "Installing Composer Dependencies"
 docker-compose run --rm composer install
 
