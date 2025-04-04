@@ -37,4 +37,6 @@
     <p class="text-gray-500">No users found.</p>
     @endif
 
+    <x-back-button />
+
 </x-layout>

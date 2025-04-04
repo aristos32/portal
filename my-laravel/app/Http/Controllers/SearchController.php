@@ -17,7 +17,7 @@ class SearchController extends Controller
             'name' => 'nullable|string',
             'surname' => 'nullable|string',
             'email' => 'nullable|email',
-            'phone' => 'nullable|integer',
+            'phone' => 'nullable|string',
             'at_least_one' => 'required_without_all:state-id,name,surname,email,phone',
         ]);
 
@@ -39,8 +39,10 @@ class SearchController extends Controller
             // Search by email
             $users = User::where('email', $validated['email'])->get();
         } else if ($validated['phone']) {
-            // Search by phone
-            $users = User::where('phone', $validated['phone'])->get();
+            // Search in phone or cellphone fields
+            $users = User::where('phone', $validated['phone'])
+                ->orWhere('cellphone', $validated['phone'])
+                ->get();
         }
         return view('users', [
             'users' => $users,
