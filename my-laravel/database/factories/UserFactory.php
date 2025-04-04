@@ -26,8 +26,8 @@ class UserFactory extends Factory
         return [
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
-            'identityNumber' => fake()->unique()->numerify('############'),
-            'identityType' => fake()->randomElement(['passport', 'national_id']),
+            'identity_number' => fake()->unique()->numerify('############'),
+            'identity_type' => fake()->randomElement(['passport', 'national_id']),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'phone' => fake()->phoneNumber(),
