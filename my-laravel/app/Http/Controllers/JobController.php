@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Job;
 use \App\Mail\JobPosted;
@@ -17,6 +16,7 @@ class JobController extends Controller
             'jobs' => $jobs,
         ]);
     }
+
     public function show(Job $job)
     {
         return view('jobs.show', [
@@ -28,8 +28,6 @@ class JobController extends Controller
     {
         return view('jobs.create');
     }
-
-
 
     public function store()
     {
@@ -79,5 +77,4 @@ class JobController extends Controller
 
         return redirect('/jobs');
     }
-
 }

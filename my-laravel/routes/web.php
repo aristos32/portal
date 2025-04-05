@@ -5,61 +5,57 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\SearchController;
-use App\Jobs\TranslateJob;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('test', function () {
-
-    $job = App\Models\Job::latest()->first();
-
-    TranslateJob::dispatch($job);
+// Redirect base URL to default locale
+Route::get('/', function () {
+    return redirect('/en/home');
 });
 
-Route::get('welcome', function () {
-    return view('welcome');
-});
+// Group all routes with {locale} prefix
+Route::group([
+    'prefix' => '{locale}',
+    'where' => ['locale' => 'en|gr'],
+    'middleware' => ['setLocale'],
+], function () {
 
-Route::view('/contact', 'contact');
-Route::view('/about', 'about');
+    Route::view('/contact', 'contact')->name('contact');
+    Route::view('/about', 'about')->name('about');
 
-Route::controller(JobController::class)->group(function () {
-    Route::get('/jobs', 'index');
-    Route::post('/jobs', 'store');
-    Route::get('/jobs/create', 'create');
-    Route::get('/jobs/{job}', 'show');
-    Route::get('/jobs/{job}/edit', 'edit');
-    Route::patch('/jobs/{job}', 'update');
-    Route::delete('/jobs/{job}', 'destroy');
-});
-
-Route::controller(ContractController::class)->group(function () {
-    Route::get('/accounts', 'index')->middleware('auth');
-    Route::get('/accounts/create', 'create')->middleware('auth');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/', function () {
+    Route::get('/home', function () {
         return view('home', [
             'users' => null,
-            'greeting' => 'Welcome to the home page',
+            'greeting' => __('messages.welcome')
         ]);
     })->name('home');
-});
 
-Route::middleware('auth')->group(function () {
-    Route::post('/search', [SearchController::class, 'search'])->name('search');
-});
+    Route::controller(JobController::class)->group(function () {
+        Route::get('/jobs', 'index')->name('jobs.index');
+        Route::post('/jobs', 'store')->name('jobs.store');
+        Route::get('/jobs/create', 'create')->name('jobs.create');
+        Route::get('/jobs/{job}', 'show')->name('jobs.show');
+        Route::get('/jobs/{job}/edit', 'edit')->name('jobs.edit');
+        Route::patch('/jobs/{job}', 'update')->name('jobs.update');
+        Route::delete('/jobs/{job}', 'destroy')->name('jobs.destroy');
+    });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');
+    Route::controller(ContractController::class)->group(function () {
+        Route::get('/accounts', 'index')->middleware('auth')->name('accounts.index');
+        Route::get('/accounts/create', 'create')->middleware('auth')->name('accounts.create');
+    });
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+        Route::post('/search', [SearchController::class, 'search'])->name('search');
+        Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');
+    });
 });
 
 require __DIR__ . '/auth.php';

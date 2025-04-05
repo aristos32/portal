@@ -15,6 +15,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="hidden md:block">
+                <x-language-switcher />
+            </div>
+
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6">
                     @guest
