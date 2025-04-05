@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        Find Users
+        {{__('general.Find Users') }}
     </x-slot:heading>
 
     <x-forms.search />
