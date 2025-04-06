@@ -8,4 +8,5 @@ return [
     'Email' => 'Email',
     'Phone' => 'Τηλέφωνο',
     'Find Users' => 'Εύρεση Χρηστών',
+    'Actions' => 'Ενέργειες',
 ];

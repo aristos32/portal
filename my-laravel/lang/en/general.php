@@ -8,5 +8,6 @@ return [
     'Email' => 'Email',
     'Phone' => 'Phone',
     'Find Users' => 'Find Users',
+    'Actions' => 'Actions',
 
 ];
