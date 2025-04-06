@@ -3,7 +3,7 @@
         Accounts Page
     </x-slot:heading>
 
-    <h1>All Accounts</h1>
+    <h1>{{ __('general.Search Results') }}</h1>
 
     <!--
   Heads up! 👋
@@ -26,19 +26,19 @@
 
             <tbody class="divide-y divide-gray-200">
                 @foreach ($contracts as $contract)
-                    <tr>
-                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $contract->number }}</td>
-                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->name }}</td>
-                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->balance }}</td>
-                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->last_transaction_at }}</td>
-                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->active }}</td>
-                        <td class="whitespace-nowrap px-4 py-2">
-                            <a href="#"
-                                class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
-                                View
-                            </a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $contract->number }}</td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->name }}</td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->balance }}</td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->last_transaction_at }}</td>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->active }}</td>
+                    <td class="whitespace-nowrap px-4 py-2">
+                        <a href="#"
+                            class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
+                            View
+                        </a>
+                    </td>
+                </tr>
                 @endforeach
 
             </tbody>
