@@ -10,4 +10,5 @@ return [
     'Find Users' => 'Εύρεση Χρηστών',
     'Actions' => 'Ενέργειες',
     'Search Results' => 'Αποτελέσματα Αναζήτησης',
+    'Find Contracts' => 'Εύρεση Συμβάσεων',
 ];

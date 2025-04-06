@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        Accounts Page
+        {{ __('general.Find Contracts') }}
     </x-slot:heading>
 
     <h1>{{ __('general.Search Results') }}</h1>
