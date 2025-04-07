@@ -11,5 +11,7 @@ return [
     'Actions' => 'Actions',
     'Search Results' => 'Search Results',
     'Find Contracts' => 'Find Contracts',
+    'Profile' => 'Profile',
+    'Addresses' => 'Addresses',
 
 ];
