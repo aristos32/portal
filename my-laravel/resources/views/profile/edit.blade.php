@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        __('general.Profile')
+        {{__('general.Profile')}}
     </x-slot:heading>
 
     <div class="py-12">
