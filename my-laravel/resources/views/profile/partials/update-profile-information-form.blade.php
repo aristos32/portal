@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+    <form id="send-verification" method="post" action="{{ locale_route('verification.send') }}">
         @csrf
     </form>
 
@@ -29,7 +29,8 @@
 
         <div>
             <x-input-label for="last_name" :value="__('Last Name')" />
-            <x-text-input id="last_name" name="last_name" type="text" class="mt-1 block w-full" :value="old('last_name', $user->last_name)" required autocomplete="last_name" />
+            <x-text-input id="last_name" name="last_name" type="text" class="mt-1 block w-full"
+                :value="old('last_name', $user->last_name)" required autocomplete="last_name" />
             @error('last_name')
             <p class="text-xs text-red-600">{{ $message }}</p>
             @enderror
@@ -37,7 +38,8 @@
 
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full"
+                :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
