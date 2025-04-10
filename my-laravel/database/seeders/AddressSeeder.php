@@ -23,7 +23,7 @@ class AddressSeeder extends Seeder
 
         // Create 3 addresses for the user
         $user->addresses()->create([
-            'type' => 'home',
+            'type' => 'correspondence',
             'street' => '1234 Elm St',
             'city' => 'Springfield',
             'state' => 'IL',
@@ -32,7 +32,7 @@ class AddressSeeder extends Seeder
         ]);
 
         $user->addresses()->create([
-            'type' => 'work',
+            'type' => 'insured',
             'street' => '5678 Maple St',
             'city' => 'Springfield',
             'state' => 'IL',
@@ -41,12 +41,22 @@ class AddressSeeder extends Seeder
         ]);
 
         $user->addresses()->create([
-            'type' => 'other',
+            'type' => 'residence',
             'street' => '91011 Oak St',
             'city' => 'Springfield',
             'state' => 'IL',
             'area_code' => '62701',
             'country' => 'USA',
         ]);
+
+        $user->addresses()->create([
+            'type' => 'business',
+            'street' => '1213 Pine St',
+            'city' => 'Springfield',
+            'state' => 'IL',
+            'area_code' => '62701',
+            'country' => 'USA',
+        ]);
+        $this->command->info('Addresses created successfully!');
     }
 }

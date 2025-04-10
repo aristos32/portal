@@ -21,13 +21,10 @@ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstr
 echo "Installing NPM Dependencies"
 docker-compose exec app npm install 
 
-echo "Running Migrations"
-docker-compose exec app php artisan migrate
-
 # echo "setting file ownership"
 # sudo chown -R aristos:aristos *
 
-echo "Seeding the container"
+echo "Running Migrations and Seeding"
 docker-compose exec app php artisan migrate:fresh --seed
 
 echo "Running Queue Worker"

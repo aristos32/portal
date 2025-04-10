@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use \App\Models\User;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Address>
  */
@@ -18,7 +19,7 @@ class AddressFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'type' => fake()->randomElement(['home', 'work', 'other', 'business', 'correspondence']),
+            'type' => fake()->randomElement(['correspondence', 'insured', 'residence', 'business']),
             'street' => fake()->streetAddress,
             'city' => fake()->city,
             'state' => fake()->state,
