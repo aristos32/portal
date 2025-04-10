@@ -47,6 +47,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(locale_route('home', absolute: false));
+        return redirect(route('home', absolute: false));
     }
 }

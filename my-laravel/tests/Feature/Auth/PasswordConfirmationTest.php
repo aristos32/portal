@@ -13,10 +13,8 @@ class PasswordConfirmationTest extends TestCase
     public function test_confirm_password_screen_can_be_rendered(): void
     {
         $user = User::factory()->create();
-        $locale = 'en'; // or 'gr' if you prefer to test Greek
-        $route = route('password.confirm', ['locale' => $locale], false);
 
-        $response = $this->actingAs($user)->get($route);
+        $response = $this->actingAs($user)->get(route('password.confirm'));
 
         $response->assertStatus(200);
     }

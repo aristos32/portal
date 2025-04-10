@@ -28,9 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $locale = app()->getLocale();
-
-        return redirect()->intended(route('home', ['locale' => $locale], absolute: false));
+        return redirect()->intended(route('home', absolute: false));
     }
 
     /**

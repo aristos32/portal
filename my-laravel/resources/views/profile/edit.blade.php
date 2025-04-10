@@ -25,8 +25,7 @@
 
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    <a href="{{ route('addresses.index', ['locale' => app()->getLocale()]) }}"
-                        class="text-blue-600 hover:underline">
+                    <a href="{{ route('addresses.index') }}" class="text-blue-600 hover:underline">
                         {{ __('general.Addresses') }}
                     </a>
                 </div>

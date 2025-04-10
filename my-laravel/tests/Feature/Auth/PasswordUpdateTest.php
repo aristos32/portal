@@ -17,8 +17,8 @@ class PasswordUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->from(locale_route('profile.edit'))
-            ->put(locale_route('password.update', [
+            ->from(route('profile.edit'))
+            ->put(route('password.update', [
                 'current_password' => 'password',
                 'password' => 'new-password',
                 'password_confirmation' => 'new-password',
@@ -26,7 +26,7 @@ class PasswordUpdateTest extends TestCase
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect(locale_route('profile.edit'));
+            ->assertRedirect(route('profile.edit'));
 
         $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
     }
@@ -37,8 +37,8 @@ class PasswordUpdateTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->from(locale_route('profile.edit'))
-            ->put(locale_route('password.update', [
+            ->from(route('profile.edit'))
+            ->put(route('password.update', [
                 'current_password' => 'wrong-password',
                 'password' => 'new-password',
                 'password_confirmation' => 'new-password',
@@ -46,6 +46,6 @@ class PasswordUpdateTest extends TestCase
 
         $response
             ->assertSessionHasErrorsIn('updatePassword', 'current_password')
-            ->assertRedirect(locale_route('profile.edit'));
+            ->assertRedirect(route('profile.edit'));
     }
 }
