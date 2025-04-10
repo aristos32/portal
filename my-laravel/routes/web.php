@@ -12,6 +12,10 @@ Route::get('/', function () {
     return redirect('/en/home');
 });
 
+Route::get('/dashboard', function () {
+    return redirect('/en/home');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 // Group all routes with {locale} prefix
 Route::group([
     'prefix' => '{locale}',
@@ -44,9 +48,6 @@ Route::group([
         Route::get('/accounts/create', 'create')->middleware('auth')->name('accounts.create');
     });
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -56,6 +57,6 @@ Route::group([
         Route::post('/search', [SearchController::class, 'search'])->name('search');
         Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');
     });
-});
 
-require __DIR__ . '/auth.php';
+    require __DIR__ . '/auth.php';
+});
