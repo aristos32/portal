@@ -12,6 +12,7 @@ return [
     'Search Results' => 'Search Results',
     'Find Contracts' => 'Find Contracts',
     'Profile' => 'Profile',
+    'Address' => 'Address',
     'Addresses' => 'Addresses',
 
 ];

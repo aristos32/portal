@@ -8,6 +8,12 @@
     $routeName = $currentRoute?->getName();
     $routeParams = $currentRoute?->parameters();
 
+    // If the current route is 'search', redirect to 'home'
+    if ($routeName === 'search') {
+    $routeName = 'home';
+    $routeParams = [];
+    }
+
     // replace the locale
     $routeParams['locale'] = $otherLocale;
     @endphp

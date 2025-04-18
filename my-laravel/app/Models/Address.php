@@ -22,7 +22,7 @@ class Address extends Model
     }
 
     // Accessor to get full address
-    public function getFullAddressAttribute()
+    public function getFullAddress()
     {
         return "{$this->street}, {$this->city}, {$this->state}, {$this->area_code}, {$this->country}";
     }

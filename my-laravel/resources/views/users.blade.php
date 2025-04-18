@@ -32,10 +32,10 @@
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->first_name }} {{ $user->last_name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->identity_number }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->full_address }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{$user->getFirstAddress()}}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <x-nav-link :href="'/users/'.$user->id" type='anchor'>View</x-nav-link>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <x-nav-link :href="'/users/'.$user->id" type='anchor'>View</x-nav-link>
                         </td>
                     </tr>
                     @endforeach
