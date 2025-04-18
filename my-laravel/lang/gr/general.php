@@ -12,5 +12,6 @@ return [
     'Search Results' => 'Αποτελέσματα Αναζήτησης',
     'Find Contracts' => 'Εύρεση Συμβάσεων',
     'Profile' => 'Προφίλ',
+    'Address' => 'Διεύθυνση',
     'Addresses' => 'Διευθύνσεις',
 ];

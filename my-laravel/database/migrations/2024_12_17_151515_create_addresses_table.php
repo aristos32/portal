@@ -16,7 +16,7 @@ return new class extends Migration {
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->enum('type', ['home', 'work', 'other', 'business', 'correspondence'])->default('home');
+            $table->enum('type', ['correspondence', 'insured', 'residence', 'business'])->default('home');
             $table->string('street');
             $table->string('city');
             $table->string('state')->nullable();

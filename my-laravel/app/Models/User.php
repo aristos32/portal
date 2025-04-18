@@ -77,4 +77,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Address::class);
     }
+
+    // get first address as string
+    public function getFirstAddress()
+    {
+        return $this->addresses()->first()->getFullAddress();
+    }
 }
