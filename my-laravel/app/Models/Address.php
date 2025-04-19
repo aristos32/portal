@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = [
-        'user_id',
         'type',
         'street',
         'city',
@@ -16,9 +15,9 @@ class Address extends Model
         'country',
     ];
 
-    public function user()
+    public function customer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Customer::class);
     }
 
     // Accessor to get full address

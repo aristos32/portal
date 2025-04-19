@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\User;
-use App\Models\Contract;
+use App\Models\Customer;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Contract>
@@ -20,7 +20,7 @@ class ContractFactory extends Factory
     {
         return [
             'name' => fake()->name,
-            'user_id' => User::factory(),
+            'customer_id' => Customer::factory(),
             'number' => fake()->numberBetween(1, 10000),
             'description' => fake()->paragraph,
             'balance' => fake()->numberBetween(1, 10000),

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\Customer;
 
 class AddressSeeder extends Seeder
 {
@@ -13,16 +13,16 @@ class AddressSeeder extends Seeder
      */
     public function run(): void
     {
-        // Find specific user by email
-        $user = User::where('email', 'aristos.aresti@gmail.com')->first();
+        // Find specific Customer by email
+        $customer = Customer::where('email', 'aristos.aresti@gmail.com')->first();
 
-        if (!$user) {
-            $this->command->error('User not found!');
+        if (!$customer) {
+            $this->command->error('Customer not found!');
             return;
         }
 
         // Create 3 addresses for the user
-        $user->addresses()->create([
+        $customer->addresses()->create([
             'type' => 'correspondence',
             'street' => '1234 Elm St',
             'city' => 'Springfield',
@@ -31,7 +31,7 @@ class AddressSeeder extends Seeder
             'country' => 'USA',
         ]);
 
-        $user->addresses()->create([
+        $customer->addresses()->create([
             'type' => 'insured',
             'street' => '5678 Maple St',
             'city' => 'Springfield',
@@ -40,7 +40,7 @@ class AddressSeeder extends Seeder
             'country' => 'USA',
         ]);
 
-        $user->addresses()->create([
+        $customer->addresses()->create([
             'type' => 'residence',
             'street' => '91011 Oak St',
             'city' => 'Springfield',
@@ -49,7 +49,7 @@ class AddressSeeder extends Seeder
             'country' => 'USA',
         ]);
 
-        $user->addresses()->create([
+        $customer->addresses()->create([
             'type' => 'business',
             'street' => '1213 Pine St',
             'city' => 'Springfield',

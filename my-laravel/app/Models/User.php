@@ -52,35 +52,4 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    public function accounts()
-    {
-        return $this->hasMany(Account::class);
-    }
-
-    public function latestTransaction()
-    {
-        return $this->hasOne(Transaction::class)->latestOfMany();
-    }
-
-    public function contracts()
-    {
-        return $this->hasMany(Contract::class);
-    }
-
-    public function employers()
-    {
-        return $this->hasMany(Employer::class);
-    }
-
-    public function addresses()
-    {
-        return $this->hasMany(Address::class);
-    }
-
-    // get first address as string
-    public function getFirstAddress()
-    {
-        return $this->addresses()->first()->getFullAddress();
-    }
 }

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)
+            $table->foreignIdFor(\App\Models\Customer::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();

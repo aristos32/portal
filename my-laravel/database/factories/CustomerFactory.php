@@ -10,6 +10,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class CustomerFactory extends Factory
 {
     /**
+     * The current password being used by the factory.
+     */
+    protected static ?string $password;
+
+    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
@@ -17,7 +22,15 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'identity_number' => fake()->unique()->numerify('############'),
+            'identity_type' => fake()->randomElement(['passport', 'national_id']),
+            'email' => fake()->unique()->safeEmail(),
+            'phone' => fake()->phoneNumber(),
+            'cellphone' => fake()->phoneNumber(),
+            'birthdate' => fake()->date(),
+            'nationality' => fake()->country(),
         ];
     }
 }

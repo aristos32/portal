@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Customer;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,7 @@ class AccountFactory extends Factory
     {
         return [
             'account_number' => fake()->unique()->bankAccountNumber(),
-            'user_id' => User::factory(), // create also UserFactory
+            'customer_id' => Customer::factory(), // create also UserFactory
             'balance' => fake()->numberBetween(1000, 100000),
             'is_active' => fake()->boolean(),
             'last_transaction_at' => fake()->dateTimeThisYear(),
