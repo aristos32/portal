@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\Transaction;
 use App\Models\Contract;
-use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TransactionTest extends TestCase
@@ -19,12 +19,12 @@ class TransactionTest extends TestCase
     public function test_transaction_belongs_to_contract(): void
     {
         ///AAA (Arrange, Act, Assert)///
-        // Create a user
-        $user = User::factory()->create();
+        // Create a customer
+        $customer = Customer::factory()->create();
 
         // Arrange
         // Create a contract
-        $contract = Contract::factory()->create(['user_id' => $user->id]);
+        $contract = Contract::factory()->create(['customer_id' => $customer->id]);
 
         // Create a transaction and associate it with the contract
         $transaction = Transaction::factory()->create(['contract_id' => $contract->id]);

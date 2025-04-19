@@ -26,21 +26,21 @@ class SearchController extends Controller
         // Perform search logic here
         if ($validated['state-id']) {
             // Search by state ID
-            $customerss = Customer::where('identity_number', $validated['state-id'])->get();
+            $customers = Customer::where('identity_number', $validated['state-id'])->get();
         } else if ($validated['name']) {
             // Search by name
-            $customerss = Customer::whereRaw('LOWER(first_name) LIKE ?', ['%' . strtolower($validated['name']) . '%'])
+            $customers = Customer::whereRaw('LOWER(first_name) LIKE ?', ['%' . strtolower($validated['name']) . '%'])
                 ->get();
         } else if ($validated['surname']) {
             // Search by surname
-            $customerss = Customer::whereRaw('LOWER(last_name) LIKE ?', ['%' . strtolower($validated['surname']) . '%'])
+            $customers = Customer::whereRaw('LOWER(last_name) LIKE ?', ['%' . strtolower($validated['surname']) . '%'])
                 ->get();
         } else if ($validated['email']) {
             // Search by email
-            $customerss = Customer::where('email', $validated['email'])->get();
+            $customers = Customer::where('email', $validated['email'])->get();
         } else if ($validated['phone']) {
             // Search in phone or cellphone fields
-            $customerss = Customer::where('phone', $validated['phone'])
+            $customers = Customer::where('phone', $validated['phone'])
                 ->orWhere('cellphone', $validated['phone'])
                 ->get();
         }

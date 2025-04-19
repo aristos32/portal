@@ -42,6 +42,9 @@ class Customer extends Model
     // get first address as string
     public function getFirstAddress()
     {
+        if ($this->addresses()->count() === 0) {
+            return null;
+        }
         return $this->addresses()->first()->getFullAddress();
     }
 }

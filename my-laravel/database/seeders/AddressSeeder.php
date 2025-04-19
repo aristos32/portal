@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Customer;
 
@@ -57,6 +56,7 @@ class AddressSeeder extends Seeder
             'area_code' => '62701',
             'country' => 'USA',
         ]);
+
         $this->command->info('Addresses created successfully!');
     }
 }
