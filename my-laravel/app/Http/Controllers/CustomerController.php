@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
 {
@@ -34,9 +35,29 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Customer $customer)
+    public function show(Request $request, $id)
     {
-        //
+
+        // Log the customer ID
+        Log::info('customer show method called');
+        Log::info('Request data:', ['request' => $request->all()]);
+        // Find the customer by ID
+        $id = $request->route('id');
+        Log::info('Customer ID:', ['id' => $id]);
+
+
+        // Find the customer by ID
+        $customer = Customer::findorfail($id);
+        Log::info('Customer found:', ['customer' => $customer]);
+        if (!$customer) {
+            // Handle the case where the customer is not found
+            return redirect()->route('customers.index')->with('error', 'Customer not found');
+        }
+
+        // Show customer details
+        return view('customers.show', [
+            'customer' => $customer,
+        ]);
     }
 
     /**

@@ -44,7 +44,7 @@ class SearchController extends Controller
                 ->orWhere('cellphone', $validated['phone'])
                 ->get();
         }
-        return view('users', [
+        return view('customers', [
             'customers' => $customers,
         ]);
     }

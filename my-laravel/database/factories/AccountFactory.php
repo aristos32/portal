@@ -20,7 +20,7 @@ class AccountFactory extends Factory
     {
         return [
             'account_number' => fake()->unique()->bankAccountNumber(),
-            'customer_id' => Customer::factory(), // create also UserFactory
+            'customer_id' => Customer::factory(), // create also Customer Factory
             'balance' => fake()->numberBetween(1000, 100000),
             'is_active' => fake()->boolean(),
             'last_transaction_at' => fake()->dateTimeThisYear(),
