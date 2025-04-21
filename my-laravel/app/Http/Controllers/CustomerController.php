@@ -71,9 +71,12 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Customer $customer)
     {
-        //
+        Log::info('customer update method called');
+        Log::info('Request data:', ['request' => request()->all()]);
+
+        dd(request()->all());
     }
 
     /**

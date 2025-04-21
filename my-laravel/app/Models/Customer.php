@@ -14,6 +14,11 @@ class Customer extends Model
     /** @use HasFactory<\Database\Factories\CustomerFactory> */
     use HasFactory;
 
+    public function infos()
+    {
+        return $this->hasMany(CustomerInfo::class);
+    }
+
     public function accounts()
     {
         return $this->hasMany(Account::class);

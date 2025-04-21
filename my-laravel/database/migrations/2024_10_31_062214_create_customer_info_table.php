@@ -12,7 +12,10 @@ return new class extends Migration {
     {
         Schema::create('customer_info', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Customer::class);
+            $table->foreignIdFor(\App\Models\Customer::class)
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
             $table->string('key');
             $table->string('value');
             $table->timestamps();

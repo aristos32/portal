@@ -102,6 +102,7 @@ $ docker-compose exec app php artisan tinker
 > \App\Models\Job::factory(100)->create();
 > \App\Models\User::all();
 > \App\Models\Customer::find(1);
+> App\Models\User::factory()->unverified()->create();
 ```
 
 - Assets related - is vite running

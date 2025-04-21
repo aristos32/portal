@@ -59,7 +59,11 @@ Route::group([
         Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');
 
         // customer routes
-        Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
+        Route::controller(CustomerController::class)->group(function () {
+            Route::get('/customers', 'index')->name('customers.index');
+            Route::get('/customers/{id}', 'show')->name('customers.show');
+            Route::patch('/customers/{id}', 'update')->name('customers.update');
+        });
     });
 
     require __DIR__ . '/auth.php';
