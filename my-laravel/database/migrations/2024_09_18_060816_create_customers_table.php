@@ -14,9 +14,12 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('identity_number')->nullable();
             $table->string('identity_type')->nullable();
+            $table->enum('type', ['account', 'lead'])->nullable();
+            $table->enum('gender', ['male', 'female', 'other'])->nullable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('cellphone')->nullable();
+            $table->string('profession')->nullable();
             $table->date('birthdate')->nullable();
             $table->string('nationality')->nullable();
             $table->timestamps();

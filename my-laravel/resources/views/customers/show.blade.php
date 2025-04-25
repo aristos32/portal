@@ -6,12 +6,8 @@
     <section class="text-left w-full max-w-none px-0">
         <header>
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Profile Information') }}
+                {{ __('Update Customer Information') }}
             </h2>
-
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                {{ __("Update your account's profile information and email address.") }}
-            </p>
         </header>
 
         <form id="send-verification" method="post" action="{{ route('verification.send') }}">
@@ -23,33 +19,35 @@
             @method('patch')
 
             <div class="grid grid-cols-[150px_1fr] gap-x-6 gap-y-4 items-start">
-                {{-- First Name --}}
-                <x-input-label for="first_name" :value="__('First Name')" class="pt-2" />
-                <div>
-                    <x-text-input id="first_name" name="first_name" type="text"
-                        :value="old('first_name', $customer->first_name)" required autocomplete="first_name" />
-                    @error('first_name')
-                    <p class="text-xs text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
 
-                {{-- Last Name --}}
-                <x-input-label for="last_name" :value="__('Last Name')" class="pt-2" />
-                <div>
-                    <x-text-input id="last_name" name="last_name" type="text"
-                        :value="old('last_name', $customer->last_name)" required autocomplete="last_name" />
-                    @error('last_name')
-                    <p class="text-xs text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
+                {{-- Identity --}}
+                <x-customer-info-row :name="'identity_number'" :label="__('Identity No.')"
+                    :value="$customer->identity_number" />
 
-                {{-- Email --}}
-                <x-input-label for="email" :value="__('Email')" class="pt-2" />
-                <div>
-                    <x-text-input id="email" name="email" type="email" :value="old('email', $customer->email)" required
-                        autocomplete="username" />
-                    <x-input-error class="mt-2" :messages="$errors->get('email')" />
-                </div>
+                <x-customer-info-row :name="'first_name'" :label="__('First Name')" :value="$customer->first_name" />
+
+                <x-customer-info-row :name="'last_name'" :label="__('Last Name')" :value="$customer->last_name" />
+
+                <x-customer-info-row :name="'type'" :label="__('Type')" :value="$customer->type" />
+
+                <x-customer-info-row :name="'gender'" :label="__('Gender')" :value="$customer->gender" />
+
+                <x-customer-info-row :name="'phone'" :label="__('Phone')" :value="$customer->phone" />
+
+                <x-customer-info-row :name="'cellphone'" :label="__('Cell Phone')" :value="$customer->cellphone" />
+
+                <x-customer-info-row :name="'profession'" :label="__('Profession')" :value="$customer->profession" />
+
+                <x-customer-info-row :name="'birthdate'" :label="__('Birth Date')" :value="$customer->birthdate" />
+
+                <x-customer-info-row :name="'license_date'" :label="__('License Date')"
+                    :value="$customer->license_date" />
+
+                <x-customer-info-row :name="'license_type'" :label="__('License Type')"
+                    :value="$customer->license_type" />
+
+                <x-customer-info-row :name="'email'" :label="__('Email')" :value="$customer->email" />
+
             </div>
 
             <div class="flex items-center gap-4">
