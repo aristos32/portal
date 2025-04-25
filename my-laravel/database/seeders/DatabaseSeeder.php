@@ -30,10 +30,14 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'Aresti',
             'identity_number' => '764490',
             'identity_type' => 'passport',
+            'type' => 'account',
+            'gender' => 'male',
             'email' => 'aristos.aresti@gmail.com',
             'phone' => '1234567890',
             'cellphone' => '0987654321',
-            'birthdate' => '1990-01-01',
+            'profession' => 'Software Engineer',
+            'birthdate' => '1977-01-01',
+            'nationality' => 'Cyprus',
         ]);
 
         User::factory(2)->create();

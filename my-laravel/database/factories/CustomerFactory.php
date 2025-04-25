@@ -26,9 +26,12 @@ class CustomerFactory extends Factory
             'last_name' => fake()->lastName(),
             'identity_number' => fake()->unique()->numerify('############'),
             'identity_type' => fake()->randomElement(['passport', 'national_id']),
+            'type' => fake()->randomElement(['account', 'lead']),
+            'gender' => fake()->randomElement(['male', 'female', 'other']),
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->phoneNumber(),
             'cellphone' => fake()->phoneNumber(),
+            'profession' => fake()->jobTitle(),
             'birthdate' => fake()->date(),
             'nationality' => fake()->country(),
         ];
