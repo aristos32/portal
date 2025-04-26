@@ -20,33 +20,30 @@
 
             <div class="grid grid-cols-[150px_1fr] gap-x-6 gap-y-4 items-start">
 
-                {{-- Identity --}}
-                <x-customer-info-row :name="'identity_number'" :label="__('Identity No.')"
+                <x-customer-info-row name="identity_number" :label="__('Identity No.')"
                     :value="$customer->identity_number" />
 
-                <x-customer-info-row :name="'first_name'" :label="__('First Name')" :value="$customer->first_name" />
+                <x-customer-info-row name="first_name" :label="__('First Name')" :value="$customer->first_name" />
 
-                <x-customer-info-row :name="'last_name'" :label="__('Last Name')" :value="$customer->last_name" />
+                <x-customer-info-row name="last_name" :label="__('Last Name')" :value="$customer->last_name" />
 
-                <x-customer-info-row :name="'type'" :label="__('Type')" :value="$customer->type" />
+                <x-customer-info-row name="type" :label="__('Type')" :value="$customer->type" />
 
-                <x-customer-info-row :name="'gender'" :label="__('Gender')" :value="$customer->gender" />
+                <x-customer-info-row name="gender" :label="__('Gender')" :value="$customer->gender" />
 
-                <x-customer-info-row :name="'phone'" :label="__('Phone')" :value="$customer->phone" />
+                <x-customer-info-row name="phone" :label="__('Phone')" :value="$customer->phone" />
 
-                <x-customer-info-row :name="'cellphone'" :label="__('Cell Phone')" :value="$customer->cellphone" />
+                <x-customer-info-row name="cellphone" :label="__('Cell Phone')" :value="$customer->cellphone" />
 
-                <x-customer-info-row :name="'profession'" :label="__('Profession')" :value="$customer->profession" />
+                <x-customer-info-row name="profession" :label="__('Profession')" :value="$customer->profession" />
 
-                <x-customer-info-row :name="'birthdate'" :label="__('Birth Date')" :value="$customer->birthdate" />
+                <x-customer-info-row name="birthdate" :label="__('Birth Date')" :value="$customer->birthdate" />
 
-                <x-customer-info-row :name="'license_date'" :label="__('License Date')"
-                    :value="$customer->license_date" />
+                <x-customer-info-row name="license_date" :label="__('License Date')" :value="$customer->license_date" />
 
-                <x-customer-info-row :name="'license_type'" :label="__('License Type')"
-                    :value="$customer->license_type" />
+                <x-customer-info-row name="license_type" :label="__('License Type')" :value="$customer->license_type" />
 
-                <x-customer-info-row :name="'email'" :label="__('Email')" :value="$customer->email" />
+                <x-customer-info-row name="email" :label="__('Email')" :value="$customer->email" />
 
             </div>
 

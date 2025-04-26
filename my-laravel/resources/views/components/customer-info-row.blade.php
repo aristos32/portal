@@ -1,3 +1,4 @@
+{{-- which attributes should be considered data variables --}}
 @props(['name', 'label', 'value'])
 
 <x-input-label for="{{$name}}" value="{{$label}}" class="pt-2" />
