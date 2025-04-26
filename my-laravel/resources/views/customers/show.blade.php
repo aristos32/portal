@@ -39,9 +39,11 @@
 
                 <x-customer-info-row name="birthdate" :label="__('Birth Date')" :value="$customer->birthdate" />
 
-                <x-customer-info-row name="license_date" :label="__('License Date')" :value="$customer->license_date" />
+                <x-customer-info-row name="license_date" :label="__('License Date')" :value="$customer->license_date"
+                    :required="false" />
 
-                <x-customer-info-row name="license_type" :label="__('License Type')" :value="$customer->license_type" />
+                <x-customer-info-row name="license_type" :label="__('License Type')" :value="$customer->license_type"
+                    :required="false" />
 
                 <x-customer-info-row name="email" :label="__('Email')" :value="$customer->email" />
 

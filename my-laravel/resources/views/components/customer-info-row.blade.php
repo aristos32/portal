@@ -1,11 +1,41 @@
-{{-- which attributes should be considered data variables --}}
-@props(['name', 'label', 'value'])
+{{-- https://chatgpt.com/c/680c761e-b12c-8009-94d1-54a4860cef96 --}}
+@props([
+'name',
+'label',
+'value',
+'required' => true,
+'readonly' => false,
+'disabled' => false,
+])
 
-<x-input-label for="{{$name}}" value="{{$label}}" class="pt-2" />
+@php
+$inputAttributes = [
+'id' => $name,
+'name' => $name,
+'type' => 'text',
+'value' => old($name, $value),
+'autocomplete' => 'first_name',
+];
+
+if ($required) {
+$inputAttributes['required'] = 'required';
+}
+
+if ($readonly) {
+$inputAttributes['readonly'] = 'readonly';
+}
+
+if ($disabled) {
+$inputAttributes['disabled'] = 'disabled';
+}
+@endphp
+
+<x-input-label for="{{ $name }}" value="{{ $label }}" class="pt-2" />
+
 <div>
-    <x-text-input id="{{$name}}" name="{{$name}}" type="text" :value="old('last_name', $value)" required
-        autocomplete="first_name" />
-    @error('{{$name}}')
-    <p class="text-xs text-red-600">{{ $message }}</p>
-    @enderror
+    <x-text-input {{ $attributes->merge($inputAttributes) }} />
+
+        @error($name)
+        <p class="text-xs text-red-600">{{ $message }}</p>
+        @enderror
 </div>

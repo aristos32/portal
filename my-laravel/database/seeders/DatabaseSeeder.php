@@ -6,8 +6,7 @@ use App\Models\Account;
 use App\Models\User;
 use App\Models\Job;
 use App\Models\Customer;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -51,5 +50,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ContractSeeder::class);
 
         $this->call(AddressSeeder::class);
+
+        Transaction::factory(100)->create();
     }
 }
