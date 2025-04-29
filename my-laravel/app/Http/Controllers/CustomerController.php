@@ -125,7 +125,7 @@ class CustomerController extends Controller
         // Redirect to the customer show page
         return redirect()->route('customers.show', [
             'id' => $customer->id
-        ])->with('success', 'Customer updated successfully');
+        ])->with('status', 'Customer updated successfully');
     }
 
     /**
