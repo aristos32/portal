@@ -14,6 +14,21 @@ class Customer extends Model
     /** @use HasFactory<\Database\Factories\CustomerFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'identity_number',
+        'identity_type',
+        'type',
+        'gender',
+        'email',
+        'phone',
+        'cellphone',
+        'profession',
+        'birthdate',
+        'nationality',
+    ];
+
     public function infos()
     {
         return $this->hasMany(CustomerInfo::class);
