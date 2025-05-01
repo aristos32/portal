@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * This is the user of the system, like an admin or a customer service.
+ * It can login to the system.
+ * It is not a customer of the business.
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -51,36 +56,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function accounts()
-    {
-        return $this->hasMany(Account::class);
-    }
-
-    public function latestTransaction()
-    {
-        return $this->hasOne(Transaction::class)->latestOfMany();
-    }
-
-    public function contracts()
-    {
-        return $this->hasMany(Contract::class);
-    }
-
-    public function employers()
-    {
-        return $this->hasMany(Employer::class);
-    }
-
-    public function addresses()
-    {
-        return $this->hasMany(Address::class);
-    }
-
-    // get first address as string
-    public function getFirstAddress()
-    {
-        return $this->addresses()->first()->getFullAddress();
     }
 }

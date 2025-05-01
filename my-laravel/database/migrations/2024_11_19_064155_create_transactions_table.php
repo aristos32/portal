@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('currency');
             $table->string('status');
             $table->string('description', 512)->nullable();
-            $table->string('notes')->nullable();
+            $table->text('notes')->nullable();
             $table->dateTime('transaction_date');
             $table->timestamps();
         });

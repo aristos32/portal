@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\Customer;
 use App\Models\Contract;
 
 class ContractSeeder extends Seeder
@@ -16,20 +16,18 @@ class ContractSeeder extends Seeder
     {
 
         // Find specific user by email
-        $user = User::where('email', 'aristos.aresti@gmail.com')->first();
+        $customer = Customer::where('email', 'aristos.aresti@gmail.com')->first();
 
-        if (!$user) {
+        if (!$customer) {
             $this->command->error('User not found!');
             return;
         }
 
         // Use the factory to create 5 contracts for the specific user
         Contract::factory()->count(5)->create([
-            'user_id' => $user->id,
+            'customer_id' => $customer->id,
         ]);
 
-        $this->command->info('5 Contracts for user created successfully!');
-
-
+        $this->command->info('5 Contracts for customer created successfully!');
     }
 }

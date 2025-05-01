@@ -20,10 +20,10 @@ $ docker-compose exec app php artisan migrate:fresh --seed
 $ docker-compose exec app npm install  
 ```
 
-### User - See Database Seeder
-
 ### Laravel getting help
 ```
+$ docker-compose exec app php artisan
+$ docker-compose exec app php artisan make
 $ docker-compose exec app php artisan help migrate:fresh
 ```
 
@@ -96,10 +96,13 @@ $ sudo chown -R aristos:aristos my-laravel/
 ```bash
 $ docker-compose exec app npm install  
 ```
-- Tinker CLI
+- Tinker CLI - command line playground.
 ```
 $ docker-compose exec app php artisan tinker  
-> \App\Models\Job::factory(100)->create()
+> \App\Models\Job::factory(100)->create();
+> \App\Models\User::all();
+> \App\Models\Customer::find(1);
+> App\Models\User::factory()->unverified()->create();
 ```
 
 - Assets related - is vite running

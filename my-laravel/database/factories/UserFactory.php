@@ -36,6 +36,7 @@ class UserFactory extends Factory
             'nationality' => fake()->country(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            //'admin' => false
         ];
     }
 
@@ -48,4 +49,17 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    /**
+     * Indicate that the model is an admin.
+     * User::factory()->admin()->create(); // create an admin user
+     *
+     * aristos: keep this as 'state' reference, admin field is not in the database
+     */
+    // public function admin(): static
+    // {
+    //     return $this->state(fn(array $attributes) => [
+    //         'admin' => true,
+    //     ]);
+    // }
 }

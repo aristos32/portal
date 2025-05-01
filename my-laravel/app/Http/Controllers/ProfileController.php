@@ -16,12 +16,9 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        // get users address
-        $addresses = $request->user()->addresses()->get();
 
         return view('profile.edit', [
             'user' => $request->user(),
-            'addresses' => $addresses,
         ]);
     }
 

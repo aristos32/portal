@@ -5,9 +5,8 @@ namespace Database\Seeders;
 use App\Models\Account;
 use App\Models\User;
 use App\Models\Job;
-use App\Models\Contract;
-use App\Models\Employer;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Customer;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,14 +24,35 @@ class DatabaseSeeder extends Seeder
             'identity_number' => '764490',
         ]);
 
-        User::factory(100)->create();
+        Customer::factory()->create([
+            'first_name' => 'Aristos',
+            'last_name' => 'Aresti',
+            'identity_number' => '764490',
+            'identity_type' => 'passport',
+            'type' => 'account',
+            'gender' => 'male',
+            'email' => 'aristos.aresti@gmail.com',
+            'phone' => '1234567890',
+            'cellphone' => '0987654321',
+            'profession' => 'Software Engineer',
+            'birthdate' => '1977-01-01',
+            'nationality' => 'Cyprus',
+        ]);
+
+        User::factory(2)->create();
 
         Job::factory(100)->create();
 
         Account::factory(100)->create();
 
+        Customer::factory(100)->create();
+
         $this->call(ContractSeeder::class);
 
         $this->call(AddressSeeder::class);
+
+        $this->call(LicenseSeeder::class);
+
+        Transaction::factory(100)->create();
     }
 }

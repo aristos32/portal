@@ -1,10 +1,10 @@
 <x-layout>
     <x-slot:heading>
-        {{ __('general.Find Users') }}
+        {{ __('general.Find Customers') }}
     </x-slot:heading>
 
     <!-- Display users -->
-    @if(isset($users) && count($users) > 0)
+    @if(isset($customers) && count($customers) > 0)
     <div class="overflow-hidden shadow sm:rounded-md">
         <div class="overflow-hidden shadow sm:rounded-md">
             <table class="min-w-full divide-y divide-gray-200">
@@ -28,14 +28,16 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($users as $user)
+                    @foreach($customers as $customer)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->first_name }} {{ $user->last_name }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->identity_number }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{$user->getFirstAddress()}}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap"></td>
-                        <x-nav-link :href="'/users/'.$user->id" type='anchor'>View</x-nav-link>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $customer->first_name }} {{ $customer->last_name }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $customer->identity_number }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{$customer->getFirstAddress()}}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $customer->email }}</td>
+                        <td class="px-6 py-4 text-right">
+                            <x-nav-link :href="route('customers.show',['id'=>$customer->id])" type='anchor'>View
+                            </x-nav-link>
                         </td>
                     </tr>
                     @endforeach
@@ -44,7 +46,7 @@
         </div>
     </div>
     @else
-    <p class="text-gray-500">No users found.</p>
+    <p class="text-gray-500">No customers found.</p>
     @endif
 
     <x-back-button />

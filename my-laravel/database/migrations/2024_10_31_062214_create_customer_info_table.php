@@ -10,18 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('customer_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Customer::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->enum('type', ['correspondence', 'insured', 'residence', 'business'])->default('home');
-            $table->string('street');
-            $table->string('city');
-            $table->string('state')->nullable();
-            $table->string('area_code');
-            $table->string('country');
+            $table->string('key');
+            $table->string('value');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('addresses');
+        Schema::dropIfExists('customer_infos');
     }
 };

@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\Contract;
-use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ContractTest extends TestCase
@@ -19,14 +19,13 @@ class ContractTest extends TestCase
         ///AAA (Arrange, Act, Assert)///
 
         // Arrange
-        // Create a user
-        $user = User::factory()->create();
+        $customer = Customer::factory()->create();
 
         // Create a contract and associate it with the user
-        $contract = Contract::factory()->create(['user_id' => $user->id]);
+        $contract = Contract::factory()->create(['customer_id' => $customer->id]);
 
         // Act - Assert
-        $this->assertInstanceOf(User::class, $contract->user);
-        $this->assertEquals($user->id, $contract->user->id);
+        $this->assertInstanceOf(Customer::class, $contract->customer);
+        $this->assertEquals($customer->id, $contract->customer->id);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect base URL to default locale
@@ -56,6 +57,13 @@ Route::group([
 
         Route::post('/search', [SearchController::class, 'search'])->name('search');
         Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');
+
+        // customer routes
+        Route::controller(CustomerController::class)->group(function () {
+            Route::get('/customers', 'index')->name('customers.index');
+            Route::get('/customers/{id}', 'show')->name('customers.show');
+            Route::patch('/customers/{id}', 'update')->name('customers.update');
+        });
     });
 
     require __DIR__ . '/auth.php';

@@ -11,13 +11,13 @@ class ContractController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        // $user = Auth::user();
 
-        $contracts = $user->contracts;
+        // $contracts = $user->contracts;
 
-        return view('contracts.index', [
-            'contracts' => $contracts,
-        ]);
+        // return view('contracts.index', [
+        //     'contracts' => $contracts,
+        // ]);
     }
 
     public function create()

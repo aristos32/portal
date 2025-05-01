@@ -2,20 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Account extends Model
+class CustomerInfo extends Model
 {
+
     use HasFactory;
 
     protected $fillable = [
-        'account_number',
-        'balance',
-        'is_active',
-        'last_transaction_at',
-        'notes',
-        'currency',
+        'key',
+        'value',
     ];
 
     public function customer()

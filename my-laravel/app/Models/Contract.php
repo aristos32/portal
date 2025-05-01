@@ -25,14 +25,13 @@ class Contract extends Model
         'expiry_date',
     ];
 
-    public function user()
+    public function customer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Customer::class);
     }
 
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
     }
-
 }
