@@ -51,6 +51,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AddressSeeder::class);
 
+        $this->call(LicenseSeeder::class);
+
         Transaction::factory(100)->create();
     }
 }

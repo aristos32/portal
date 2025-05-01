@@ -29,7 +29,12 @@
 
                 <x-customer-info-row name="type" :label="__('Type')" :value="$customer->type" />
 
-                <x-customer-info-row name="gender" :label="__('Gender')" :value="$customer->gender" />
+                <x-customer-info-row name="gender" :label="__('Gender')" type="select" :value="$customer->gender">
+                    <option value="">{{ __('Select') }}</option>
+                    <option value="male" {{ $customer->gender === 'male' ? 'selected' : '' }}>Male</option>
+                    <option value="female" {{ $customer->gender === 'female' ? 'selected' : '' }}>Female</option>
+                    <option value="other" {{ $customer->gender === 'other' ? 'selected' : '' }}>Other</option>
+                </x-customer-info-row>
 
                 <x-customer-info-row name="phone" :label="__('Phone')" :value="$customer->phone" />
 

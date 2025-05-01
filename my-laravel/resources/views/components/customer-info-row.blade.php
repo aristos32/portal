@@ -3,6 +3,7 @@
 'name',
 'label',
 'value',
+'type' => 'input',
 'required' => true,
 'readonly' => false,
 'disabled' => false,
@@ -12,7 +13,7 @@
 $inputAttributes = [
 'id' => $name,
 'name' => $name,
-'type' => 'text',
+'type' => $type,
 'value' => old($name, $value),
 'autocomplete' => 'first_name',
 ];
@@ -33,9 +34,15 @@ $inputAttributes['disabled'] = 'disabled';
 <x-input-label for="{{ $name }}" value="{{ $label }}" class="pt-2" />
 
 <div>
+    @if ($type === 'select')
+    <select {{ $attributes->merge($inputAttributes) }}>
+        {{ $slot }}
+    </select>
+    @else
     <x-text-input {{ $attributes->merge($inputAttributes) }} />
 
         @error($name)
         <p class="text-xs text-red-600">{{ $message }}</p>
         @enderror
+        @endif
 </div>

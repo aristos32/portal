@@ -21,9 +21,9 @@ class ContractFactory extends Factory
         return [
             'name' => fake()->name,
             'customer_id' => Customer::factory(),
-            'number' => fake()->numberBetween(1, 10000),
+            'number' => fake()->unique()->numberBetween(1, 1000),
             'description' => fake()->paragraph,
-            'balance' => fake()->numberBetween(1, 10000),
+            'balance' => fake()->numberBetween(1, 1000000),
             'is_active' => fake()->boolean(0.5),
             'notes' => fake()->randomDigitNotZero(),
             'last_transaction_at' => fake()->dateTimeThisYear(),

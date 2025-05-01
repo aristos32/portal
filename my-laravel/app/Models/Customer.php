@@ -59,6 +59,11 @@ class Customer extends Model
         return $this->hasMany(Address::class);
     }
 
+    public function licenses()
+    {
+        return $this->hasMany(License::class);
+    }
+
     // get first address as string
     public function getFirstAddress()
     {

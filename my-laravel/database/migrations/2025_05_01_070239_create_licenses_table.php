@@ -10,19 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('licenses', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Contract::class)
+            $table->foreignIdFor(\App\Models\Customer::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->string('type');
-            $table->decimal('amount', 10, 2);
-            $table->string('currency');
-            $table->string('status');
-            $table->string('description', 512)->nullable();
-            $table->text('notes')->nullable();
-            $table->dateTime('transaction_date');
+            $table->enum('type', ['learner', 'regular', 'professional', 'motorcycle'])->default('regular');
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('licenses');
     }
 };
