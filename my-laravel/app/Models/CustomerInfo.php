@@ -10,6 +10,11 @@ class CustomerInfo extends Model
 
     use HasFactory;
 
+    protected $fillable = [
+        'key',
+        'value',
+    ];
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

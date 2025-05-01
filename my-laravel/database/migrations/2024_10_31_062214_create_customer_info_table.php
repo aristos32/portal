@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('customer_info', function (Blueprint $table) {
+        Schema::create('customer_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Customer::class)
                 ->constrained()
@@ -27,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer_info');
+        Schema::dropIfExists('customer_infos');
     }
 };

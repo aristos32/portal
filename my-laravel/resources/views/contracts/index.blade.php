@@ -32,7 +32,7 @@
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->balance }}</td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->last_transaction_at }}</td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->active }}</td>
-                    <td class="whitespace-nowrap px-4 py-2">
+                    <td class="whitespace-nowrap px-4 py-2 text-right">
                         <a href="#"
                             class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
                             View

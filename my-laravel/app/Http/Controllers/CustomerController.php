@@ -108,6 +108,13 @@ class CustomerController extends Controller
         $customer->birthdate = $validated['birthdate'];
         $updated = $customer->save();
 
+        // add new customer info
+        // this is just an example
+        // $customer->infos()->create([
+        //     'key' => 'updated_at',
+        //     'value' => now(),
+        // ]);
+
         if (!$updated) {
             Log::error('Customer update failed', ['customer' => $customer]);
             return back()->withErrors(['error' => 'Failed to update customer']);
