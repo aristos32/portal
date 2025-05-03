@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account;
 use App\Models\User;
 use App\Models\Job;
 use App\Models\Customer;
@@ -42,8 +41,6 @@ class DatabaseSeeder extends Seeder
         User::factory(2)->create();
 
         Job::factory(100)->create();
-
-        Account::factory(100)->create();
 
         Customer::factory(100)->create();
 
