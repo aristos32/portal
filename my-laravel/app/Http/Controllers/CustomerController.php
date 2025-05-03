@@ -47,7 +47,7 @@ class CustomerController extends Controller
 
 
         // Find the customer by ID
-        $customer = Customer::findorfail($id);
+        $customer = Customer::with('contracts.customer')->findorfail($id);
         Log::info('Customer found:', ['customer' => $customer]);
         if (!$customer) {
             // Handle the case where the customer is not found
