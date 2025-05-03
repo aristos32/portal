@@ -20,7 +20,6 @@ return new class extends Migration {
             $table->string('number', 20)->unique();
             $table->string('description', 512)->nullable();
             $table->decimal('balance', 10, 2)->nullable()->default(0);
-            $table->boolean('is_active')->default(false);
             $table->softDeletes();
             $table->string('notes')->nullable();
             $table->dateTime('last_transaction_at')->nullable();

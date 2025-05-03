@@ -18,17 +18,19 @@ class ContractFactory extends Factory
      */
     public function definition(): array
     {
+
+        $start = fake()->dateTimeBetween('1970-01-01', 'now');
+
         return [
             'name' => fake()->name,
             'customer_id' => Customer::factory(),
-            'number' => fake()->unique()->numberBetween(1, 1000),
+            'number' => fake()->unique()->bothify('??-########'), // inique string
             'description' => fake()->paragraph,
             'balance' => fake()->numberBetween(1, 1000000),
-            'is_active' => fake()->boolean(0.5),
             'notes' => fake()->randomDigitNotZero(),
             'last_transaction_at' => fake()->dateTimeThisYear(),
-            'start_date' => fake()->date('Y-m-d', now()),
-            'expiry_date' => fake()->date('Y-m-d', now()->addMonths(12)),
+            'start_date' => $start->format('Y-m-d'),
+            'expiry_date' => $start->modify('+1 year')->format('Y-m-d'),
         ];
     }
 }
