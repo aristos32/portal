@@ -18,7 +18,6 @@ class Contract extends Model
         'number',
         'description',
         'balance',
-        'is_active',
         'notes',
         'last_transaction_at',
         'start_date',
@@ -33,5 +32,11 @@ class Contract extends Model
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    // using Laravel's attribute accessor convention
+    public function getStatusAttribute()
+    {
+        return $this->expiry_date < now() ? __('expired') : __('active');
     }
 }
