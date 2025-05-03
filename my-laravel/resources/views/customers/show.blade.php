@@ -64,4 +64,15 @@
             </div>
         </form>
     </section>
+
+    <section class="mt-6">
+        <header>
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {{ __('Customer Contracts') }}
+            </h2>
+        </header>
+
+        <x-customer-contracts :contracts="$customer->contracts" />
+
+    </section>
 </x-layout>
