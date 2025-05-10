@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Model::preventLazyLoading();
+        //Model::preventLazyLoading();
 
         // This assumes the current locale is set in the URL (e.g., from the first URL segment)
         // or falls back to your config setting (usually 'en').

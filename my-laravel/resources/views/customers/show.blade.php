@@ -23,9 +23,11 @@
                 <x-customer-info-row name="identity_number" :label="__('Identity No.')"
                     :value="$customer->identity_number" />
 
-                <x-customer-info-row name="first_name" :label="__('First Name')" :value="$customer->first_name" />
+                <x-customer-info-row name="first_name" :label="__('First Name')" :value="$customer->first_name"
+                    :required="false" />
 
-                <x-customer-info-row name="last_name" :label="__('Last Name')" :value="$customer->last_name" />
+                <x-customer-info-row name="last_name" :label="__('Last Name')" :value="$customer->last_name"
+                    :required="false" />
 
                 <x-customer-info-row name="type" :label="__('Type')" :value="$customer->type" />
 
