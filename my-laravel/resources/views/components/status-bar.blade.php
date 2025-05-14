@@ -1,9 +1,8 @@
 <!-- Display validation errors -->
 @if ($errors->any())
-<div class="flex items-center p-4 mb-4 max-w-xl text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+<div class="flex items-center p-4 ml-8 mb-4 max-w-xl text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
     role="alert">
     <ul>
-
         @foreach ($errors->all() as $error)
         <li>
             <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

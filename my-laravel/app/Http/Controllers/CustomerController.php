@@ -43,12 +43,14 @@ class CustomerController extends Controller
         Log::info('Request data:', ['request' => $request->all()]);
         // Find the customer by ID
         $id = $request->route('id');
-        Log::info('Customer ID:', ['id' => $id]);
 
 
-        // Find the customer by ID
-        $customer = Customer::with('contracts.customer')->findorfail($id);
-        Log::info('Customer found:', ['customer' => $customer]);
+        // Find the customer by ID, including related contracts order by last transaction date
+        $customer = Customer::with(['contracts' => function ($query) {
+            $query->orderBy('expiry_date', 'desc')
+                ->orderByDesc('balance');
+        }])->findorfail($id);
+
         if (!$customer) {
             // Handle the case where the customer is not found
             return redirect()->route('customers.index')->with('error', 'Customer not found');

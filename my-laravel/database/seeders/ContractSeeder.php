@@ -24,7 +24,7 @@ class ContractSeeder extends Seeder
         }
 
         // Use the factory to create 5 contracts for the specific user
-        Contract::factory()->count(5)->create([
+        Contract::factory()->count(105)->create([
             'customer_id' => $customer->id,
         ]);
 
