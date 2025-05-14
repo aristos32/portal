@@ -47,7 +47,7 @@ class CustomerController extends Controller
 
         // Find the customer by ID, including related contracts order by last transaction date
         $customer = Customer::with(['contracts' => function ($query) {
-            $query->orderBy('expiry_date', 'desc')
+            $query->orderByDesc('expiry_date')
                 ->orderByDesc('balance');
         }])->findorfail($id);
 
