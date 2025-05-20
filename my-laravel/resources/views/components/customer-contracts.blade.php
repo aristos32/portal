@@ -1,6 +1,5 @@
 @props(['contracts'])
 
-
 <section class="mt-6">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
@@ -37,7 +36,12 @@
                 </tr>
                 @endforeach
             </tbody>
+
         </table>
+
+        <div class="mt-4">
+            {{ $contracts->links() }}
+        </div>
     </div>
 
 </section>

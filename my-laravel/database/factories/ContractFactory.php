@@ -19,7 +19,7 @@ class ContractFactory extends Factory
     public function definition(): array
     {
 
-        $start = fake()->dateTimeBetween('1970-01-01', 'now');
+        $start = fake()->dateTimeBetween('2000-01-01', 'now + 1 year');
 
         return [
             'name' => fake()->name,
