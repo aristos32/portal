@@ -67,6 +67,6 @@
         </form>
     </section>
 
-    <x-customer-contracts :contracts="$customer->contracts" />
+    <x-customer-contracts :contracts="$contracts" />
 
 </x-layout>

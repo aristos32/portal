@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Contract;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -45,20 +46,23 @@ class CustomerController extends Controller
         $id = $request->route('id');
 
 
-        // Find the customer by ID, including related contracts order by last transaction date
-        $customer = Customer::with(['contracts' => function ($query) {
-            $query->orderByDesc('expiry_date')
-                ->orderByDesc('balance');
-        }])->findorfail($id);
+        $customer = Customer::findOrFail($id); // Load customer without eager loading
 
         if (!$customer) {
             // Handle the case where the customer is not found
             return redirect()->route('customers.index')->with('error', 'Customer not found');
         }
 
+
+        $contracts = Contract::where('customer_id', $customer->id)
+            ->orderByDesc('expiry_date')
+            ->orderByDesc('balance')
+            ->paginate(10);
+
         // Show customer details
         return view('customers.show', [
             'customer' => $customer,
+            'contracts' => $contracts,
         ]);
     }
 

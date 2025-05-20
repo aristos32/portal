@@ -147,6 +147,9 @@ Clean and seed again
 $ docker-compose exec app php artisan migrate:fresh --seed
 ```
 
+#### Publish Vendor Views to my resources/views
+```$ docker-compose exec app php artisan test```
+
 #### Run all tests  
 ```$ docker-compose exec app php artisan test```
 
