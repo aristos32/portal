@@ -15,5 +15,6 @@ return [
     'Profile' => 'Profile',
     'Address' => 'Address',
     'Addresses' => 'Addresses',
+    'Dashboard' => 'Dashboard',
 
 ];

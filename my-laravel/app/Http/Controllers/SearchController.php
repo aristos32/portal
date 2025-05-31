@@ -3,10 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Customer;
+use App\Models\Contract;
 
 class SearchController extends Controller
 {
+
+    public function index()
+    {
+        return view('customers.search');
+    }
+
+
+    public function fillDashboard()
+    {
+
+        // find 10 customers most recently created
+        $recentlyCreatedCustomers = Customer::orderBy('created_at', 'desc')->take(10)->get();
+
+        // find 10 customers most recently updated
+        $recentlyUpdatedCustomers = Customer::orderBy('updated_at', 'desc')->take(10)->get();
+
+        // find 10 contracts most recently created
+        $recentlyCreatedContracts = Contract::orderBy('created_at', 'desc')->take(10)->get();
+
+        // This method can be used to fill the dashboard with initial data if needed
+        return view('dashboard', [
+            'recentlyCreatedCustomers' => $recentlyCreatedCustomers,
+            'recentlyUpdatedCustomers' => $recentlyUpdatedCustomers,
+            'recentlyCreatedContracts' => $recentlyCreatedContracts,
+        ]);
+    }
+
+
     public function search(Request $request)
     {
         $customers = null;

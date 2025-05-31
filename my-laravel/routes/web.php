@@ -27,12 +27,7 @@ Route::group([
     Route::view('/contact', 'contact')->name('contact');
     Route::view('/about', 'about')->name('about');
 
-    Route::get('/home', function () {
-        return view('home', [
-            'users' => null,
-            'greeting' => __('messages.welcome')
-        ]);
-    })->name('home');
+    Route::get('/home', [SearchController::class, 'fillDashboard'])->name('home');
 
     Route::controller(JobController::class)->group(function () {
         Route::get('/jobs', 'index')->name('jobs.index');
@@ -55,6 +50,7 @@ Route::group([
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+        Route::get('/search', [SearchController::class, 'index'])->name('search.form');
         Route::post('/search', [SearchController::class, 'search'])->name('search');
         Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');
 

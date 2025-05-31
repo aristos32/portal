@@ -72,4 +72,10 @@ class Customer extends Model
         }
         return $this->addresses()->first()->getFullAddress();
     }
+
+    // get first and last name as full name
+    public function getFullName()
+    {
+        return trim("{$this->first_name} {$this->last_name}");
+    }
 }
