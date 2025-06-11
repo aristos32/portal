@@ -27,8 +27,6 @@ Route::group([
     Route::view('/contact', 'contact')->name('contact');
     Route::view('/about', 'about')->name('about');
 
-    Route::get('/home', [SearchController::class, 'fillDashboard'])->name('home');
-
     Route::controller(JobController::class)->group(function () {
         Route::get('/jobs', 'index')->name('jobs.index');
         Route::post('/jobs', 'store')->name('jobs.store');
@@ -46,6 +44,9 @@ Route::group([
 
 
     Route::middleware('auth')->group(function () {
+
+        Route::get('/home', [SearchController::class, 'fillDashboard'])->name('home');
+
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
