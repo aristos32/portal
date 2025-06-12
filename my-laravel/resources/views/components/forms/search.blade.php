@@ -1,4 +1,4 @@
-<form method="POST" class="max-w-sm mx-auto" action="{{route('search', ['locale' => app()->getLocale()])}}">
+<form method="POST" class="max-w-sm mx-auto" action="{{route('search.process', ['locale' => app()->getLocale()])}}">
     @csrf
     <div class="mb-4">
         <label for="state-id" class="block text-gray-700 text-sm font-bold mb-2">{{__('general.State Id')}}</label>

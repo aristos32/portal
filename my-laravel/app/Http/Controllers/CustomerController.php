@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Contract;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
@@ -20,9 +21,9 @@ class CustomerController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('customers.create');
     }
 
     /**
@@ -30,7 +31,16 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:customers,email',
+        ]);
+
+        $customer = Customer::create($request->all());
+
+        return redirect()->route('customers.show', ['id' => $customer->id]);
     }
 
     /**

@@ -52,12 +52,14 @@ Route::group([
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::get('/search', [SearchController::class, 'index'])->name('search.form');
-        Route::post('/search', [SearchController::class, 'search'])->name('search');
+        Route::post('/search', [SearchController::class, 'search'])->name('search.process');
         Route::get('/addresses', [AddressController::class, 'index'])->name('addresses.index');
 
         // customer routes
         Route::controller(CustomerController::class)->group(function () {
             Route::get('/customers', 'index')->name('customers.index');
+            Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+            Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
             Route::get('/customers/{id}', 'show')->name('customers.show');
             Route::patch('/customers/{id}', 'update')->name('customers.update');
         });
