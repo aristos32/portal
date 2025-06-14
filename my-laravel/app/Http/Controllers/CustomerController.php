@@ -36,6 +36,17 @@ class CustomerController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:customers,email',
+        ], [
+            'first_name.required' => 'Το όνομα είναι υποχρεωτικό',
+            'first_name.string' => 'Το όνομα πρέπει να είναι κείμενο',
+            'first_name.max' => 'Το όνομα δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'last_name.required' => 'Το επώνυμο είναι υποχρεωτικό',
+            'last_name.string' => 'Το επώνυμο πρέπει να είναι κείμενο',
+            'last_name.max' => 'Το επώνυμο δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'email.required' => 'Το email είναι υποχρεωτικό',
+            'email.email' => 'Το email πρέπει να είναι έγκυρο',
+            'email.max' => 'Το email δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'email.unique' => 'Αυτό το email χρησιμοποιείται ήδη',
         ]);
 
         $customer = Customer::create($request->all());
@@ -106,6 +117,27 @@ class CustomerController extends Controller
             'cellphone' => 'nullable|string|max:20',
             'profession' => 'nullable|string|max:255',
             'birthdate' => 'nullable|date',
+        ], [
+            'first_name.required' => 'Το όνομα είναι υποχρεωτικό',
+            'first_name.string' => 'Το όνομα πρέπει να είναι κείμενο',
+            'first_name.max' => 'Το όνομα δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'last_name.required' => 'Το επώνυμο είναι υποχρεωτικό',
+            'last_name.string' => 'Το επώνυμο πρέπει να είναι κείμενο',
+            'last_name.max' => 'Το επώνυμο δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'identity_number.string' => 'Ο αριθμός ταυτότητας πρέπει να είναι κείμενο',
+            'identity_number.max' => 'Ο αριθμός ταυτότητας δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'type.string' => 'Ο τύπος πρέπει να είναι κείμενο',
+            'gender.string' => 'Το φύλο πρέπει να είναι κείμενο',
+            'email.required' => 'Το email είναι υποχρεωτικό',
+            'email.email' => 'Το email πρέπει να είναι έγκυρο',
+            'email.max' => 'Το email δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'phone.string' => 'Το τηλέφωνο πρέπει να είναι κείμενο',
+            'phone.max' => 'Το τηλέφωνο δεν μπορεί να υπερβαίνει τους 20 χαρακτήρες',
+            'cellphone.string' => 'Το κινητό τηλέφωνο πρέπει να είναι κείμενο',
+            'cellphone.max' => 'Το κινητό τηλέφωνο δεν μπορεί να υπερβαίνει τους 20 χαρακτήρες',
+            'profession.string' => 'Η επάγγελμα πρέπει να είναι κείμενο',
+            'profession.max' => 'Η επάγγελμα δεν μπορεί να υπερβαίνει τους 255 χαρακτήρες',
+            'birthdate.date' => 'Η ημερομηνία γέννησης πρέπει να είναι έγκυρη',
         ]);
 
         // Log validated data
