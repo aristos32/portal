@@ -89,13 +89,16 @@ $ sudo chown -R aristos:aristos my-laravel/
 - Run migrations  
 ```$ docker-compose exec app php artisan migrate```
 
-- Generate Laravel application encryption key -  missing key exception 
-```$ docker-compose exec app php artisan key:generate```
-
 - install npm
 ```bash
 $ docker-compose exec app npm install  
 ```
+
+- Generate Laravel application encryption key -  missing key exception 
+
+```$ docker-compose exec app php artisan key:generate```
+
+
 - Tinker CLI - command line playground.
 ```
 $ docker-compose exec app php artisan tinker  
