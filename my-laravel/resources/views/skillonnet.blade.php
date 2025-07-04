@@ -69,3 +69,15 @@ aristos works
         return false;
     }
 </script>
+
+<br>
+<br>
+<br>
+<a id="support-email" href="#"></a>
+<script>
+    const supportEmail = "support@swiftcasino.com"; // window.SON_CONFIG.support_email;
+    document.addEventListener('DOMContentLoaded', function() {  
+        document.getElementById("support-email").href = "mailto:" + supportEmail;
+        document.getElementById("support-email").text = supportEmail;
+    });
+</script>
