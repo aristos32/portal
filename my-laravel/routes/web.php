@@ -13,6 +13,10 @@ Route::get('/', function () {
     return redirect('/en/home');
 });
 
+Route::get('/test', function () {
+    return view('skillonnet');
+});
+
 Route::get('/dashboard', function () {
     return redirect('/en/home');
 })->middleware(['auth', 'verified'])->name('dashboard');
