@@ -11,27 +11,27 @@ $ ./update.sh
 
 ### Individual Services
 ```bash
-$ docker-compose up -d
-$ docker-compose exec app npm run dev  
+$ docker compose up -d
+$ docker compose exec app npm run dev  
 $ docker exec -it crm-crm-fpm-1 sh
-$ docker-compose exec app php artisan migrate  
-$ docker-compose exec app php artisan migrate:fresh --seed  
+$ docker compose exec app php artisan migrate  
+$ docker compose exec app php artisan migrate:fresh --seed  
 > http://127.0.0.1:8082/  
 
-$ docker-compose exec app npm install  
+$ docker compose exec app npm install  
 ```
 
 ### Laravel getting help
 ```
-$ docker-compose exec app php artisan
-$ docker-compose exec app php artisan make
-$ docker-compose exec app php artisan help migrate:fresh
+$ docker compose exec app php artisan
+$ docker compose exec app php artisan make
+$ docker compose exec app php artisan help migrate:fresh
 ```
 
 ### versions
 ```bash
 $ docker --version  //Docker version 26.1.4, build 5650f9b    
-$ docker-compose --version //docker-compose version 1.29.2, build unknown
+$ docker compose --version //docker compose version 1.29.2, build unknown
 $ node -v
 $ php artisan --version
 ```
@@ -43,7 +43,7 @@ $ php artisan --version
 - create .env file  
 ```$ cp my-laravel/.env.example my-laravel/.env```
 
-- In the .env, update these variables to match the ones in the docker-compose  
+- In the .env, update these variables to match the ones in the docker compose  
 ```
 # db
 DB_CONNECTION=pgsql
@@ -56,8 +56,8 @@ DB_PASSWORD=password
 ```
 - Install composer dependencies  
 ```
-$ docker-compose run --rm composer install  
-$ docker-compose run --rm composer require barryvdh/laravel-debugbar --dev
+$ docker compose run --rm composer install  
+$ docker compose run --rm composer require barryvdh/laravel-debugbar --dev
 ```
 
 - If any permission errors like this occurs:  
@@ -66,7 +66,7 @@ The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened 
 ```  
 then set correct permissions and ownership:  
 ```
-$ docker-compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && docker-compose exec app chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+$ docker compose exec app chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && docker compose exec app chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 ```
 
 - if cannot save file:
@@ -79,30 +79,30 @@ $ sudo chown -R aristos:aristos my-laravel/
 ```
 
 - install Laravel Sanctum for api  
-```$ docker-compose exec app php artisan install:api```
+```$ docker compose exec app php artisan install:api```
 
 - build and start all docker services
-```$ docker-compose up -d --build```
+```$ docker compose up -d --build```
 
 - verify that all services are up  
-```$ docker-compose ps```
+```$ docker compose ps```
 
 - Run migrations  
-```$ docker-compose exec app php artisan migrate```
+```$ docker compose exec app php artisan migrate```
 
 - install npm
 ```bash
-$ docker-compose exec app npm install  
+$ docker compose exec app npm install  
 ```
 
 - Generate Laravel application encryption key -  missing key exception 
 
-```$ docker-compose exec app php artisan key:generate```
+```$ docker compose exec app php artisan key:generate```
 
 
 - Tinker CLI - command line playground.
 ```
-$ docker-compose exec app php artisan tinker  
+$ docker compose exec app php artisan tinker  
 > \App\Models\Job::factory(100)->create();
 > \App\Models\User::all();
 > \App\Models\Customer::find(1);
@@ -115,12 +115,12 @@ http://localhost:5173/
 php artisan view:clear
 php artisan config:clear
 
-$ docker-compose exec app npm run dev 
+$ docker compose exec app npm run dev 
   ➜  Local:   http://localhost:5173/
 ```
 
 - start the scheduler  
-```$ docker-compose exec app php artisan schedule:work```
+```$ docker compose exec app php artisan schedule:work```
 
 ### Testing
 #### Check if application is running  
@@ -135,7 +135,7 @@ http://127.0.0.1:8082/test
 ```$ tail -f my-laravel/storage/logs/laravel.log```
 
 #### Redis CLI connect
-```$ docker-compose exec redis redis-cli```  
+```$ docker compose exec redis redis-cli```  
 -- KEYS * (see all keys)  
 -- GET key_name  
 -- DEL key_name
@@ -148,15 +148,15 @@ $ mysql -h 127.0.0.1 -P 3308 -u laravel -p
 ```
 Clean and seed again
 ```
-$ docker-compose exec app php artisan migrate:fresh --seed
+$ docker compose exec app php artisan migrate:fresh --seed
 ```
 
 #### Publish Vendor Views to my resources/views
-```$ docker-compose exec app php artisan vendor:publish```
+```$ docker compose exec app php artisan vendor:publish```
 
 
 #### Run all tests  
-```$ docker-compose exec app php artisan test```
+```$ docker compose exec app php artisan test```
 
 #### xdebug - add this
 ```
@@ -167,7 +167,7 @@ $ docker-compose exec app php artisan migrate:fresh --seed
 
 #### Run Queue
 ```
-$ docker-compose exec app php artisan queue:work
+$ docker compose exec app php artisan queue:work
 ```
 
 #### Useful tools

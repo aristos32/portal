@@ -1,5 +1,5 @@
 # Use the PHP 8.2 FPM image
-FROM php:8.2-fpm-buster
+FROM php:8.2-fpm-bookworm
 
 # Install necessary packages and clean up after installation
 RUN apt-get update && \
