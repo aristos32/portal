@@ -2,7 +2,8 @@
 - https://docs.google.com/document/d/1lkJQ-pVw1q4SR7appH6KRTOHF_mkFCsU7Vz3t-X27c0/edit#heading=h.55sbk8djw69w
 - Create a backoffice / clients portal
 - Should use the latest technology to learn
-- Laravel, postgressql, tailwind, docker 
+- Should use workers for edge computing
+- Laravel, postgressql, tailwind, docker, cloudflare workers 
 
 ### Start Project
 ```
@@ -35,6 +36,9 @@ $ docker compose --version //docker compose version 1.29.2, build unknown
 $ node -v
 $ php artisan --version
 ```
+
+### Database connection
+`$ psql -h localhost -p 5439 -U administrator -d portal`
 
 ### Initial Setup
 - clore repository:  

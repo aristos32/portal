@@ -38,3 +38,5 @@ docker compose exec -d app npm run dev
 
 echo "Running Unit Tests"
 docker compose exec app php artisan test --parallel
+
+echo "Open url: http://127.0.0.1:8082/"

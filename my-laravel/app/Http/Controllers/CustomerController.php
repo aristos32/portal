@@ -69,9 +69,13 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Customer $customer)
+    public function edit(Request $request, $id)
     {
-        //
+        $id = $request->route('id');
+        $customer = Customer::findOrFail($id);
+        return view('customers.edit', [
+            'customer' => $customer,
+        ]);
     }
 
     /**

@@ -64,8 +64,13 @@ Route::group([
 
         // customer routes
         Route::controller(CustomerController::class)->group(function () {
+            // list customers
             Route::get('/customers', 'index')->name('customers.index');
+            // show customer
             Route::get('/customers/{id}', 'show')->name('customers.show');
+            // edit customer
+            Route::get('/customers/{id}/edit', 'edit')->name('customers.edit');
+            // update customer
             Route::patch('/customers/{id}', 'update')->name('customers.update');
         });
     });
