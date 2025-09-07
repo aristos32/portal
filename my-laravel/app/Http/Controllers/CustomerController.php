@@ -41,7 +41,6 @@ class CustomerController extends Controller
 
         // Log the customer ID
         Log::info('customer show method called');
-        Log::info('Request data:', ['request' => $request->all()]);
         // Find the customer by ID
         $id = $request->route('id');
 
@@ -73,6 +72,7 @@ class CustomerController extends Controller
     {
         $id = $request->route('id');
         $customer = Customer::findOrFail($id);
+
         return view('customers.edit', [
             'customer' => $customer,
         ]);
@@ -106,6 +106,7 @@ class CustomerController extends Controller
         Log::info('Validated data:', $validated);
 
         $customer = Customer::findorfail($id);
+
         $customer->first_name = $validated['first_name'];
         $customer->last_name = $validated['last_name'];
         $customer->identity_number = $validated['identity_number'];
@@ -116,6 +117,7 @@ class CustomerController extends Controller
         $customer->cellphone = $validated['cellphone'];
         $customer->profession = $validated['profession'];
         $customer->birthdate = $validated['birthdate'];
+
         $updated = $customer->save();
 
         // add new customer info
@@ -148,8 +150,16 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Customer $customer)
+    public function destroy(Request $request)
     {
-        //
+        //authorize (on hold...)
+
+        // delete customer
+        $id = $request->route('id');
+        $customer = Customer::findOrFail($id);
+
+        $customer->delete();
+
+        return redirect()->route('home')->with('status', 'Customer deleted successfully');
     }
 }

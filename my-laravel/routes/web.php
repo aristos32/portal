@@ -68,10 +68,12 @@ Route::group([
             Route::get('/customers', 'index')->name('customers.index');
             // show customer
             Route::get('/customers/{id}', 'show')->name('customers.show');
-            // edit customer
+            // show edit form
             Route::get('/customers/{id}/edit', 'edit')->name('customers.edit');
             // update customer
             Route::patch('/customers/{id}', 'update')->name('customers.update');
+            // delete customer
+            Route::delete('/customers/{id}', 'destroy')->name('customers.destroy');
         });
     });
 

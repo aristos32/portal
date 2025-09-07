@@ -1,14 +1,9 @@
 <x-layout>
     <x-slot:heading>
-        {{ __('Update Customer Information') }}
+        {{ __('Update Customer: ') . $customer->first_name . ' ' . $customer->last_name }}
     </x-slot:heading>
 
     <section class="text-left w-full max-w-none px-0">
-        <header>
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Update Customer Information') }}
-            </h2>
-        </header>
 
         <form id="send-verification" method="post" action="{{ route('verification.send') }}">
             @csrf
@@ -56,7 +51,8 @@
 
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="mt-6 flex items-center justify-end gap-4">
+                <x-secondary-button onclick="history.back()">{{ __('Cancel') }}</x-secondary-button>
                 <x-primary-button>{{ __('Update') }}</x-primary-button>
 
                 @if (session('status') === 'profile-updated')
@@ -65,5 +61,14 @@
                 @endif
             </div>
         </form>
+
+        <div class="mt-4 flex items-center justify-start">
+            <form method="POST" action="{{ route('customers.destroy', ['id' => $customer->id]) }}" onsubmit="return confirm('Are you sure you want to delete this customer?')">
+                @csrf
+                @method('delete')
+                <button type="submit" class="text-red-500 text-sm font-bold hover:text-red-700">Delete Customer</button>
+            </form>
+        </div>
+
     </section>
 </x-layout>
