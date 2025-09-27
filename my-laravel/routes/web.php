@@ -74,9 +74,9 @@ Route::group([
             // list customers
             Route::get('/customers', 'index')->name('customers.index');
             // show customer
-            Route::get('/customers/{id}', 'show')->name('customers.show');
+            Route::get('/customers/{customer}', 'show')->name('customers.show');
             // show edit form
-            Route::get('/customers/{id}/edit', 'edit')->name('customers.edit');
+            Route::get('/customers/{customer}/edit', 'edit')->name('customers.edit');
             // update customer
             Route::patch('/customers/{id}', 'update')->name('customers.update');
             // delete customer

@@ -36,22 +36,10 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, $id)
+    public function show(Customer $customer)
     {
-
         // Log the customer ID
-        Log::info('customer show method called');
-        // Find the customer by ID
-        $id = $request->route('id');
-
-
-        $customer = Customer::findOrFail($id); // Load customer without eager loading
-
-        if (!$customer) {
-            // Handle the case where the customer is not found
-            return redirect()->route('customers.index')->with('error', 'Customer not found');
-        }
-
+        Log::info('customer show method called', ['customer_id' => $customer->id]);
 
         $contracts = Contract::where('customer_id', $customer->id)
             ->orderByDesc('expiry_date')
@@ -68,11 +56,8 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, $id)
+    public function edit(Customer $customer)
     {
-        $id = $request->route('id');
-        $customer = Customer::findOrFail($id);
-
         return view('customers.edit', [
             'customer' => $customer,
         ]);
@@ -143,7 +128,7 @@ class CustomerController extends Controller
 
         // Redirect to the customer show page
         return redirect()->route('customers.show', [
-            'id' => $customer->id
+            'customer' => $customer
         ])->with('status', 'Customer updated successfully');
     }
 

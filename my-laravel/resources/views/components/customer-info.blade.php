@@ -49,6 +49,6 @@
         <div class="text-gray-900 dark:text-gray-100">{{ $customer->email ?? '-' }}</div>
     </div>
 
-    <x-button :href="route('customers.edit',['id'=>$customer->id])">{{ __('Edit') }}</x-button>
+    <x-button :href="route('customers.edit',['customer'=>$customer])">{{ __('Edit') }}</x-button>
 
 </section>
