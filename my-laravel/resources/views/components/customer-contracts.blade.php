@@ -28,7 +28,7 @@
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->expiry_date }}</td>
                     <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $contract->status }}</td>
                     <td class="whitespace-nowrap px-4 py-2 text-right">
-                        <a href="#"
+                        <a href="{{ route('contracts.show', ['contract' => $contract]) }}"
                             class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700">
                             View
                         </a>

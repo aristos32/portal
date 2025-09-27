@@ -20,6 +20,34 @@ class ContractController extends Controller
         // ]);
     }
 
+    public function show($locale, Contract $contract)
+    {
+        return view('contracts.show', [
+            'contract' => $contract,
+        ]);
+    }
+
+    public function edit($locale, Contract $contract)
+    {
+        return view('contracts.edit', [
+            'contract' => $contract,
+        ]);
+    }
+
+    public function update($locale, Contract $contract)
+    {
+        return view('contracts.update', [
+            'contract' => $contract,
+        ]);
+    }
+
+    public function destroy($locale, Contract $contract)
+    {
+        return view('contracts.destroy', [
+            'contract' => $contract,
+        ]);
+    }
+
     public function create()
     {
         return view('contracts.create');

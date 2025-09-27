@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        {{ __('general.Find Customers') }}
+        {{ __('general.Customer Details') }}
     </x-slot:heading>
 
     <x-customer-info :customer="$customer" />

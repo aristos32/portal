@@ -48,11 +48,6 @@ Route::group([
         Route::delete('/jobs/{job}', 'destroy')->name('jobs.destroy');
     });
 
-    Route::controller(ContractController::class)->group(function () {
-        Route::get('/accounts', 'index')->middleware('auth')->name('accounts.index');
-        Route::get('/accounts/create', 'create')->middleware('auth')->name('accounts.create');
-    });
-
 
     Route::middleware('auth')->group(function () {
         Route::controller(ProfileController::class)->group(function(){
@@ -69,18 +64,21 @@ Route::group([
             Route::post('/search', 'search')->name('search');
         });
 
-        // customer routes
         Route::controller(CustomerController::class)->group(function () {
-            // list customers
             Route::get('/customers', 'index')->name('customers.index');
-            // show customer
             Route::get('/customers/{customer}', 'show')->name('customers.show');
-            // show edit form
             Route::get('/customers/{customer}/edit', 'edit')->name('customers.edit');
-            // update customer
             Route::patch('/customers/{id}', 'update')->name('customers.update');
-            // delete customer
             Route::delete('/customers/{id}', 'destroy')->name('customers.destroy');
+        });
+
+        Route::controller(ContractController::class)->group(function () {
+            Route::get('/contracts', 'index')->name('contracts.index');
+            Route::get('/contracts/{contract}', 'show')->name('contracts.show');
+            Route::get('/contracts/{contract}/edit', 'edit')->name('contracts.edit');
+            Route::patch('/contracts/{contract}', 'update')->name('contracts.update');
+            Route::delete('/contracts/{contract}', 'destroy')->name('contracts.destroy');
+            Route::get('/contracts/create', 'create')->name('contracts.create');
         });
     });
 
