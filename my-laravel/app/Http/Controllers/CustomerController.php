@@ -36,7 +36,7 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Customer $customer)
+    public function show($locale, Customer $customer)
     {
         // Log the customer ID
         Log::info('customer show method called', ['customer_id' => $customer->id]);

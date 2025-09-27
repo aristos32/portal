@@ -36,7 +36,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{$customer->getFirstAddress()}}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $customer->email }}</td>
                         <td class="px-6 py-4 text-right">
-                            <x-nav-link :href="route('customers.show', $customer)" type='anchor'>View
+                            <x-nav-link :href="route('customers.show',['customer' => $customer])" type='anchor'>View
                             </x-nav-link>
                         </td>
                     </tr>
