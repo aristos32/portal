@@ -27,7 +27,7 @@ class ProfileTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->patch(route('profile.edit'), [
+            ->patch(route('profile.update'), [
                 'first_name' => 'Alice',
                 'last_name' => 'Wonderland',
                 'email' => 'test@example.com',
@@ -51,7 +51,7 @@ class ProfileTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->patch(route('profile.edit'), [
+            ->patch(route('profile.update'), [
                 'first_name' => 'Test User',
                 'last_name' => 'Test User',
                 'email' => $user->email,
@@ -70,7 +70,7 @@ class ProfileTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->delete(route('profile.edit'), [
+            ->delete(route('profile.destroy'), [
                 'password' => 'password',
             ]);
 
@@ -89,7 +89,7 @@ class ProfileTest extends TestCase
         $response = $this
             ->actingAs($user)
             ->from(route('profile.edit'))
-            ->delete(route('profile.edit'), [
+            ->delete(route('profile.destroy'), [
                 'password' => 'wrong-password',
             ]);
 

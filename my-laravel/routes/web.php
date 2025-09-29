@@ -55,8 +55,11 @@ Route::group([
             Route::get('/profile/edit', 'edit')->name('profile.edit');
             Route::patch('/profile', 'update')->name('profile.update');
             Route::delete('/profile', 'destroy')->name('profile.destroy');
-            Route::get('/addresses', 'index')->name('addresses.index');
 
+        });
+
+        Route::controller(AddressController::class)->group(function(){
+            Route::get('/addresses', 'index')->name('addresses.index');
         });
 
 
