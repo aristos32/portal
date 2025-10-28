@@ -1,3 +1,5 @@
+@props(['customers'])
+
 <!-- Display users -->
 @if(isset($customers) && count($customers) > 0)
 <div class="overflow-hidden shadow sm:rounded-md">

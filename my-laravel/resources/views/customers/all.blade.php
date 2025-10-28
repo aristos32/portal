@@ -3,7 +3,7 @@
         {{ __('general.Find Customers') }}
     </x-slot:heading>
 
-    @include('customers.customers', ['customers' => $customers])
+    <x-customers :customers="$customers" />
 
     <x-back-button />
 
