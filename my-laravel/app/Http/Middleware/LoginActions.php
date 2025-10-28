@@ -17,6 +17,7 @@ class LoginActions
     public function handle(Request $request, Closure $next): Response
     {
         Log::info('Login action');
+        
         return $next($request);
     }
 }

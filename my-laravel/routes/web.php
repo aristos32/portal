@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect base URL to default locale
@@ -31,12 +32,7 @@ Route::group([
     Route::view('/contact', 'contact')->name('contact');
     Route::view('/about', 'about')->name('about');
 
-    Route::get('/home', function () {
-        return view('home', [
-            'users' => null,
-            'greeting' => __('messages.welcome')
-        ]);
-    })->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::controller(JobController::class)->group(function () {
         Route::get('/jobs', 'index')->name('jobs.index');

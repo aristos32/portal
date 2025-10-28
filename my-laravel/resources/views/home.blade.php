@@ -5,4 +5,6 @@
 
     <x-forms.search />
 
+    @include('customers.customers', ['customers' => $customers])
+
 </x-layout>
