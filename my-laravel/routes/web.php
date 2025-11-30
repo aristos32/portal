@@ -32,8 +32,6 @@ Route::group([
     Route::view('/contact', 'contact')->name('contact');
     Route::view('/about', 'about')->name('about');
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-
     Route::controller(JobController::class)->group(function () {
         Route::get('/jobs', 'index')->name('jobs.index');
         Route::post('/jobs', 'store')->name('jobs.store');
@@ -46,6 +44,9 @@ Route::group([
 
 
     Route::middleware('auth')->group(function () {
+
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        
         Route::controller(ProfileController::class)->group(function(){
 
             Route::get('/profile/edit', 'edit')->name('profile.edit');
