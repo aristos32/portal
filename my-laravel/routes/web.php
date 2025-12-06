@@ -8,6 +8,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Mail\ContractExpiringSoon;
+use App\Models\Contract;
 
 // Redirect base URL to default locale
 Route::get('/', function () {
@@ -15,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('skillonnet');
+    return new ContractExpiringSoon(Contract::find(1));
 });
 
 Route::get('/dashboard', function () {
@@ -46,7 +48,7 @@ Route::group([
     Route::middleware('auth')->group(function () {
 
         Route::get('/home', [HomeController::class, 'index'])->name('home');
-        
+
         Route::controller(ProfileController::class)->group(function(){
 
             Route::get('/profile/edit', 'edit')->name('profile.edit');
