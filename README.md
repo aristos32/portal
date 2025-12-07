@@ -175,7 +175,25 @@ $ docker compose exec app php artisan queue:work
 ```
 
 #### Useful tools
+
+- sending emails
+
 ```
 https://mailtrap.io/
+copy smtp settings in .env
+
+Run test route:
+Route::get('/test', function () {
+    Mail::to('aristos.aresti@gmail.com')->send(new ContractExpiringSoon(Contract::find(1)));
+    return 'Email sent';
+    //return new ContractExpiringSoon(Contract::find(1));
+});
+
+with:
+
+http://127.0.0.1:8082/test
+
+check email in mailtrap inbox
+
 ```
 

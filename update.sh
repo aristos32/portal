@@ -10,7 +10,7 @@ echo "Installing Composer Dependencies"
 docker compose run --rm composer install
 
 echo 'stoping docker services'
-docker compose down
+docker compose stop
 
 echo "starting docker services"
 docker compose up -d
