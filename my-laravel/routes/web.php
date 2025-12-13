@@ -17,8 +17,8 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    Mail::to('aristos.aresti@gmail.com')->send(new ContractExpiringSoon(Contract::find(1)));
-    return 'Email sent';
+    Mail::to('aristos.aresti@gmail.com')->queue(new ContractExpiringSoon(Contract::find(1)));
+    return 'Email queued';
     //return new ContractExpiringSoon(Contract::find(1));
 });
 

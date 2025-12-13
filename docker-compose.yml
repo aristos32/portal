@@ -13,8 +13,11 @@ services:
       - laravel
     depends_on:
       - composer
+      - db
+      - redis
     environment:
       - PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
+    restart: unless-stopped
 
   composer:
     image: composer:2

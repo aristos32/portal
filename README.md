@@ -14,13 +14,15 @@ $ ./update.sh
 ```bash
 $ docker compose up -d
 $ docker compose exec app npm run dev  
-$ docker exec -it crm-crm-fpm-1 sh
+$ docker exec -it laravel_app sh
 $ docker compose exec app php artisan migrate  
 $ docker compose exec app php artisan migrate:fresh --seed  
 > http://local.host:8082/  
 
 $ docker compose exec app npm install  
 ```
+
+**Note:** The queue worker runs automatically via Supervisor when the container starts. No need to manually start it.
 
 ### Laravel getting help
 ```
@@ -169,10 +171,49 @@ $ docker compose exec app php artisan migrate:fresh --seed
             }
 ```
 
-#### Run Queue
+#### Supervisor & Queue Worker
+
+The application uses **Supervisor** to manage processes in the `app` container. Supervisor automatically starts and manages:
+- **PHP-FPM** - Handles web requests
+- **Laravel Queue Worker** - Processes queued jobs automatically
+
+The queue worker starts automatically when the container starts and will restart if it crashes.
+
+**Check Supervisor Status:**
+```bash
+$ docker compose exec app supervisorctl status
 ```
-$ docker compose exec app php artisan queue:work
+
+**Manage Queue Worker:**
+```bash
+# Restart queue worker
+$ docker compose exec app supervisorctl restart laravel-queue
+
+# Stop queue worker
+$ docker compose exec app supervisorctl stop laravel-queue
+
+# Start queue worker
+$ docker compose exec app supervisorctl start laravel-queue
+
+# Restart all processes
+$ docker compose exec app supervisorctl restart all
 ```
+
+**View Logs:**
+```bash
+# Queue worker logs
+$ docker compose exec app tail -f /var/log/supervisor/queue-worker.log
+
+# PHP-FPM logs
+$ docker compose exec app tail -f /var/log/supervisor/php-fpm.out.log
+
+# Supervisor main log
+$ docker compose exec app tail -f /var/log/supervisor/supervisord.log
+```
+
+**Configuration:**
+- Supervisor config: `docker/supervisor/supervisord.conf`
+- Queue worker settings can be customized in the supervisor config file
 
 #### Useful tools
 
