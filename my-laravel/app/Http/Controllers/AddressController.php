@@ -19,7 +19,7 @@ class AddressController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/api/addresses",
+     *     path="/addresses",
      *     tags={"Addresses"},
      *     summary="Get addresses list",
      *     description="Returns list of addresses",

@@ -36,6 +36,9 @@ docker compose exec app npm run build
 echo "Running NPM Dev in the background"
 docker compose exec -d app npm run dev
 
+echo "Generating swagger documentation"
+docker compose exec app php artisan l5-swagger:generate
+
 echo "Running Unit Tests"
 docker compose exec app php artisan test --parallel
 
