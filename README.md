@@ -44,8 +44,8 @@ $ php artisan --version
 
 ### Initial Setup
 - clore repository:  
-```$ git clone  git@github.com:aristos32/exercise.git```  
-```$ cd exercise```
+```$ git clone  git@github.com:aristos32/portal.git```  
+```$ cd portal```
 - create .env file  
 ```$ cp my-laravel/.env.example my-laravel/.env```
 
