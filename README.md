@@ -215,6 +215,30 @@ $ docker compose exec app tail -f /var/log/supervisor/supervisord.log
 - Supervisor config: `docker/supervisor/supervisord.conf`
 - Queue worker settings can be customized in the supervisor config file
 
+
+#### Swagger API documentation
+
+- Access via:
+```
+http://127.0.0.1:8082/api/documentation
+
+https://chatgpt.com/c/69551d75-1ac8-832e-8010-9c157d06b38c
+
+```
+
+- Install
+
+```
+$ docker compose run --rm composer require darkaonline/l5-swagger
+$ docker compose exec app php artisan vendor:publish --provider="L5Swagger\L5SwaggerServiceProvider"
+```
+
+- Generate Swagger documentation
+
+Run:
+
+`$ docker compose exec app php artisan l5-swagger:generate`
+
 #### Useful tools
 
 - sending emails

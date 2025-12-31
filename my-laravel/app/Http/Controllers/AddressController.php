@@ -6,10 +6,28 @@ use App\Http\Requests\StoreAddressRequest;
 use App\Http\Requests\UpdateAddressRequest;
 use App\Models\Address;
 
+/**
+ * @OA\Tag(
+ *     name="Addresses",
+ *     description="Address management endpoints"
+ * )
+ */
 class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
+     */
+    /**
+     * @OA\Get(
+     *     path="/api/addresses",
+     *     tags={"Addresses"},
+     *     summary="Get addresses list",
+     *     description="Returns list of addresses",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation"
+     *     )
+     * )
      */
     public function index()
     {
