@@ -4,7 +4,7 @@
             <div class="flex items-center">
                 <div class="flex-shrink-0">
                     <a href="/">
-                        <img class="h-8 w-8" src="{{Vite::asset('resources/images/icons8-logo.svg')}}"
+                        <img class="h-8 w-8" src="{{Vite::asset('resources/images/logo.svg')}}"
                             alt="Insurance Office">
                     </a>
                 </div>

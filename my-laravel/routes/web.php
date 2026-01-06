@@ -17,8 +17,15 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
+
+    dispatch(function() {
+        logger('Dispatching email');
+    });
+
     Mail::to('aristos.aresti@gmail.com')->queue(new ContractExpiringSoon(Contract::find(1)));
+
     return 'Email queued';
+
     //return new ContractExpiringSoon(Contract::find(1));
 });
 
