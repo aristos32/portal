@@ -19,10 +19,10 @@ class TransactionTest extends TestCase
     public function test_transaction_belongs_to_contract(): void
     {
         ///AAA (Arrange, Act, Assert)///
-        // Create a customer
-        $customer = Customer::factory()->create();
 
         // Arrange
+        // Create a customer
+        $customer = Customer::factory()->create();
         // Create a contract
         $contract = Contract::factory()->create(['customer_id' => $customer->id]);
 
