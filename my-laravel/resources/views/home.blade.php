@@ -7,4 +7,6 @@
 
     <x-customers :customers="$customers" />
 
+    <livewire:counter /> <!-- This is a livewire component -->
+
 </x-layout>

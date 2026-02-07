@@ -16,6 +16,8 @@ Route::get('/', function () {
     return redirect('/en/home');
 });
 
+Route::livewire('/post/create', 'pages::post.create');
+
 Route::get('/test', function () {
 
     dispatch(function() {

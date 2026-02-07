@@ -10,6 +10,8 @@
         src="https://portal-workers.aristos-aresti.workers.dev/webcomponents.es.js"
     ></script>
 
+    @livewireStyles
+
 </head>
 
 <body class="h-full">
@@ -37,6 +39,8 @@
         </main>
     </div>
 
+
+    @livewireScripts
 
 </body>
 
