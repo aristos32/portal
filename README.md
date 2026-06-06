@@ -69,6 +69,10 @@ $ docker compose run --rm composer require barryvdh/laravel-debugbar --dev
 - If any permission errors like this occurs:  
 ```
 The stream or file "/var/www/html/storage/logs/laravel.log" could not be opened in append mode: Failed to open stream: Permission denied The exception occurred while attempting to log
+
+or
+
+chmod: changing permissions of '/var/www/html/storage': Permission denied
 ```  
 then set correct permissions and ownership:  
 ```
